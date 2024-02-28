@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user'] = $username;
 
         // Rediriger l'utilisateur vers la page d'accueil sécurisée
-        header("Location: ../index.html");
+        header("Location: dashboard.php");
         exit; // Assurez-vous de terminer le script après la redirection
     } else {
         // Afficher un message d'erreur si les informations d'identification sont incorrectes
