@@ -46,20 +46,31 @@ require_once '../function/questions.fn.php';
                     <!-- Structure du tableau -->
                     <!-- Insérer les données dynamiquement ici -->
 
+
                     <?php foreach ($questions as $index => $question) { ?>
-                        <div class="accordion-item mb-4 shadow-sm">
-                            <h2 class="accordion-header" id="heading<?php echo $index; ?>">
-                                <button class="accordion-button collapsed bg-transparent fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $index; ?>" aria-expanded="false" aria-controls="collapse<?php echo $index; ?>">
-                                    <?php echo $question['question']; ?>
-                                </button>
-                            </h2>
-                            <div id="collapse<?php echo $index; ?>" class="accordion-collapse collapse" aria-labelledby="heading<?php echo $index; ?>">
-                                <div class="accordion-body">
-                                    <?php echo $question['reponse']; ?>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
+        <div class="accordion-item mb-4 shadow-sm">
+            <h2 class="accordion-header" id="heading<?php echo $index; ?>">
+                <button class="accordion-button collapsed bg-transparent fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $index; ?>" aria-expanded="false" aria-controls="collapse<?php echo $index; ?>">
+                    <?php echo $question['question']; ?>
+                </button>
+            </h2>
+            <div id="collapse<?php echo $index; ?>" class="accordion-collapse collapse" aria-labelledby="heading<?php echo $index; ?>">
+                <div class="accordion-body">
+                    <?php echo $question['reponse']; ?>
+                </div>
+            </div>
+            
+            <!-- Boutons pour modifier et supprimer la question -->
+            <div class="d-flex justify-content-end mt-2">
+                <a href="modifier_question.php?id=<?php echo $question['id']; ?>" class="btn btn-warning me-2">Modifier</a>
+                <form action="supprimer_question.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $question['id']; ?>">
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                </form>
+            </div>
+        </div>
+    <?php } ?> 
+
 
                     <!-- Bouton Ajouter -->
                     <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addQuestionModal">Ajouter Question</button>
@@ -117,72 +128,6 @@ require_once '../function/questions.fn.php';
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-
-
-
-    <div class="container">
-        <h2>Tableau de bord FAQ</h2>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <div class="form-group">
-                <label for="question">Question :</label>
-                <input type="text" class="form-control" id="question" name="question">
-            </div>
-            <div class="form-group">
-                <label for="reponse">Réponse :</label>
-                <textarea class="form-control" id="reponse" name="reponse"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" name="ajouter">Ajouter</button>
-        </form>
-
-        <h3>Liste des questions :</h3>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Question</th>
-                    <th>Réponse</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $row["question"] . "</td>";
-                        echo "<td>" . $row["reponse"] . "</td>";
-                        echo "<td>
-                                <a href='#'>Modifier</a> |
-                                <a href='#'>Supprimer</a>
-                              </td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='3'>Aucune question trouvée.</td></tr>";
-                }
-                ?>
-            </tbody>
-        </table>
-    </div>
-
-
-    <?php foreach ($questions as $question) { ?>
-        <div class="accordion-item mb-4 shadow-sm">
-            <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed bg-transparent fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <?php echo $question['question']; ?>
-                </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
-                <div class="accordion-body">
-                    <?php echo $question['reponse']; ?>
-                </div>
-            </div>
-        </div>
-        </table>
-
-
-    <?php } ?>
 
 </body>
 
