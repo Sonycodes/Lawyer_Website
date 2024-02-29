@@ -16,4 +16,4 @@ function findAllQuestions($conn){
 }
 
 //pour visualiser le contenu du tableau qui est récupéré (attention echo ne pourra pas afficher le tableau)
-var_dump(findAllQuestions($conn));
+// var_dump(findAllQuestions($conn));
