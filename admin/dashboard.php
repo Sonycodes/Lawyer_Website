@@ -1,6 +1,7 @@
 
 <?php
-require_once '../function/questions.fn.php'
+require_once '../function/questions.fn.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,65 +30,89 @@ require_once '../function/questions.fn.php'
                 <a class="nav-link" id="links-tab" data-toggle="tab" href="#links" role="tab" aria-controls="links" aria-selected="false">Liens</a>
             </li>
         </ul>
+        
+        <?php 
+$questions = findAllQuestions($conn);
+?>
 
-        <!-- Tab panes -->
+     <!-- Tab panes -->
         <div class="tab-content">
             <!-- Questions -->
             <div class="tab-pane fade show active" id="questions" role="tabpanel" aria-labelledby="questions-tab">
                 <h2>Questions</h2>
                 <!-- Tableau pour afficher les questions -->
                 <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Question</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Insérer les données dynamiquement ici -->
-                    </tbody>
+                    <!-- Structure du tableau -->
+                    <!-- Insérer les données dynamiquement ici -->
+
+                    <?php foreach ($questions as $question){ ?>
+                    <div class="accordion-item mb-4 shadow-sm">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed bg-transparent fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <?php echo $question['question'];?>
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                  <div class="accordion-body">
+                  <?php echo $question['reponse'];?>
+                  </div>
+                </div>
+</div>
                 </table>
+
+
+                <?php } ?>
+                    <!-- Bouton Ajouter -->
+                    <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addQuestionModal">Ajouter Question</button>
             </div>
             <!-- Articles -->
             <div class="tab-pane fade" id="articles" role="tabpanel" aria-labelledby="articles-tab">
                 <h2>Articles</h2>
+                <!-- Bouton Ajouter -->
+                <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addArticleModal">Ajouter Article</button>
                 <!-- Tableau pour afficher les articles -->
                 <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Titre</th>
-                            <th>Contenu</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Insérer les données dynamiquement ici -->
-                    </tbody>
+                    <!-- Structure du tableau -->
+                    <!-- Insérer les données dynamiquement ici -->
                 </table>
             </div>
             <!-- Liens -->
             <div class="tab-pane fade" id="links" role="tabpanel" aria-labelledby="links-tab">
                 <h2>Liens</h2>
+                <!-- Bouton Ajouter -->
+                <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addLinkModal">Ajouter Lien</button>
                 <!-- Tableau pour afficher les liens -->
                 <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Titre</th>
-                            <th>URL</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Insérer les données dynamiquement ici -->
-                    </tbody>
+                    <!-- Structure du tableau -->
+                    <!-- Insérer les données dynamiquement ici -->
                 </table>
             </div>
         </div>
+     
+    </div>
+    <!-- Modals pour les formulaires d'ajout, de modification et de suppression -->
+
+    <!-- Modal d'ajout de question -->
+    <div class="modal fade" id="addQuestionModal" tabindex="-1" role="dialog" aria-labelledby="addQuestionModalLabel" aria-hidden="true">
+        <!-- Contenu du modal -->
     </div>
 
+    <!-- Modal d'ajout d'article -->
+    <div class="modal fade" id="addArticleModal" tabindex="-1" role="dialog" aria-labelledby="addArticleModalLabel" aria-hidden="true">
+        <!-- Contenu du modal -->
+    </div>
+
+    <!-- Modal d'ajout de lien -->
+    <div class="modal fade" id="addLinkModal" tabindex="-1" role="dialog" aria-labelledby="addLinkModalLabel" aria-hidden="true">
+        <!-- Contenu du modal -->
+    </div>
+        
+
+
+<link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/faqs/faq-2/assets/css/faq-2.css">
+<script src="https://unpkg.com/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
     <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
