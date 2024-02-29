@@ -1,5 +1,7 @@
 <?php
 require_once '../function/questions.fn.php';
+require_once '../function/ressources.fn.php';
+require_once '../function/articles.fn.php';
 
 ?>
 <!DOCTYPE html>
@@ -22,7 +24,7 @@ require_once '../function/questions.fn.php';
         <!-- Nav tabs -->
         <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="questions-tab" data-toggle="tab" href="#questions" role="tab" aria-controls="questions" aria-selected="true">Questions</a>
+                <a class="nav-link active" id="questions-tab" data-toggle="tab" href="#questions" role="tab" aria-controls="questions" aria-selected="false">Questions</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="articles-tab" data-toggle="tab" href="#articles" role="tab" aria-controls="articles" aria-selected="false">Articles</a>
@@ -50,11 +52,14 @@ require_once '../function/questions.fn.php';
                     <?php foreach ($questions as $index => $question) { ?>
         <div class="accordion-item mb-4 shadow-sm">
             <h2 class="accordion-header" id="heading<?php echo $index; ?>">
-                <button class="accordion-button collapsed bg-transparent fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $index; ?>" aria-expanded="false" aria-controls="collapse<?php echo $index; ?>">
+                <button class="accordion-button collapsed bg-transparent fw-bold" type="button" 
+                data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $index; ?>" 
+                aria-expanded="false" aria-controls="collapse<?php echo $index; ?>">
                     <?php echo $question['question']; ?>
                 </button>
             </h2>
-            <div id="collapse<?php echo $index; ?>" class="accordion-collapse collapse" aria-labelledby="heading<?php echo $index; ?>">
+            <div id="collapse<?php echo $index; ?>" class="accordion-collapse collapse" 
+            aria-labelledby="heading<?php echo $index; ?>">
                 <div class="accordion-body">
                     <?php echo $question['reponse']; ?>
                 </div>
@@ -62,8 +67,9 @@ require_once '../function/questions.fn.php';
             
             <!-- Boutons pour modifier et supprimer la question -->
             <div class="d-flex justify-content-end mt-2">
-                <a href="modifier_question.php?id=<?php echo $question['id']; ?>" class="btn btn-warning me-2">Modifier</a>
-                <form action="supprimer_question.php" method="post">
+                <a href="toUpdate.php?id=<?php echo $question['id']; ?>" 
+                class="btn btn-warning me-2">Modifier</a>
+                <form action="deleteItems.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $question['id']; ?>">
                     <button type="submit" class="btn btn-danger">Supprimer</button>
                 </form>
