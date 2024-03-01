@@ -16,50 +16,58 @@ function findAllQuestions($conn){
 }
 
 //pour visualiser le contenu du tableau qui est récupéré (attention echo ne pourra pas afficher le tableau)
-// var_dump(findAllQuestions($conn));
-
-function findQuestionById($conn, $currentID) {
-    $sql = "SELECT 
-    q.id, q.question, q.reponse
-    FROM questions AS q
-    WHERE q.id = :currentID";
-    
-     // Préparation de la requête
-     $stmt = $conn->prepare($sql);
-    
-     // Lier le paramètre
-     $stmt->bindParam(':currentID', $currentID, PDO::PARAM_INT);
-     
-     // Exécution de la requête
-     $stmt->execute();
-     
-     // Récupération du résultat
-     $question = $stmt->fetch(PDO::FETCH_ASSOC);
- 
-     return $question;
-}
 
 //function pour delete les questions via leur id :
 
 
-function deleteQuestionById($conn, $id) {
-    // Préparation de la requête SQL pour supprimer l'élément avec l'ID spécifié
-    $query = "DELETE FROM questions WHERE id = ?";
-    
-    // Préparation de la requête
-    $stmt = $conn->prepare($query);
-    
-    // Liaison des paramètres
-    $stmt->bind_param("i", $id);
-    
-    // Exécution de la requête
-    if ($stmt->execute()) {
-        // La suppression a réussi
-        return true;
-    } else {
-        // La suppression a échoué
+function findQuestionById($conn, $currentID) {
+    try {
+        // Préparation de la requête SQL pour sélectionner la question avec l'ID spécifié
+        $sql = "SELECT id, question, reponse FROM questions WHERE id = :id";
+        
+        // Préparation de la requête
+        $stmt = $conn->prepare($sql);
+        
+        // Liaison des paramètres
+        $stmt->bindParam(':id', $currentID, PDO::PARAM_INT);
+        
+        // Exécution de la requête
+        $stmt->execute();
+        
+        // Récupération de la question
+        $question = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        // Retourne la question
+        return $question;
+    } catch (PDOException $e) {
+        // Gestion des erreurs PDO
+        echo "Erreur: " . $e->getMessage();
         return false;
     }
-    return $question;
 }
 
+function deleteQuestionById($conn, $currentID) {
+    try {
+        // Préparation de la requête SQL pour supprimer l'élément avec l'ID spécifié
+        $sql = "DELETE FROM questions WHERE id = :id";
+        
+        // Préparation de la requête
+        $stmt = $conn->prepare($sql);
+        
+        // Liaison des paramètres
+        $stmt->bindParam(':id', $currentID, PDO::PARAM_INT);
+        
+        // Exécution de la requête
+        if ($stmt->execute()) {
+            // La suppression a réussi
+            return true;
+        } else {
+            // La suppression a échoué
+            return false;
+        }
+    } catch (PDOException $e) {
+        // Gestion des erreurs PDO
+        echo "Erreur: " . $e->getMessage();
+        return false;
+    }
+}

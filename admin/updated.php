@@ -7,20 +7,66 @@ require_once dirname(__DIR__) . '/function/questions.fn.php';
 // $description = $_POST['description'];
 // $price = $_POST['price'];
 // $capacity = $_POST['ml'];
-$givenData = $_POST; // les données envoyées lors de la modification
-$currentID = $_POST['id'];
-$currentData = findQuestionById($conn, $currentID); // la fonction qui récupère les données 
+$updatedData = $_POST; // les données envoyées lors de la modification
+$currentId = $_POST['id'];
+$currentData = findQuestionById($conn, $currentId); // la fonction qui récupère les données 
 // actuelles de la base de données
-$differences = array_diff_assoc($givenData, $currentData); 
+$diff = array_diff_assoc($updatedData, $currentData); 
 
-var_dump($givenData);
+var_dump($updatedData);
 var_dump($currentData);
-var_dump($differences);
+var_dump($diff);
 // la prochaine étape sera de faire un UPDATE sur les tables SQL items_cards, pictures et 
 // capacities
 
 // $sql = "UPDATE items_cards SET price WHERE id"; 
 // for each catégorie du tableau $differences, je veux que tu 
+
+// Récupération des données du formulaire
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $currentId = $_POST['id'];
+    $question = $_POST['question'];
+    $reponse = $_POST['reponse'];
+
+    try {
+        // Récupération des données actuelles de la question
+        $currentData = findQuestionById($conn, $currentId); // Supposant que vous avez une fonction pour récupérer les données actuelles
+
+        // Comparaison des données actuelles avec les nouvelles données
+        $updatedData = [
+            'question' => $question,
+            'reponse' => $reponse
+        ];
+
+        $diff = array_diff_assoc($updatedData, $currentData);
+
+        // Construction de la requête SQL en fonction des données modifiées
+        $sql = "UPDATE questions SET ";
+        $updates = [];
+
+        foreach ($diff as $key => $value) {
+            $updates[] = "$key = '$value'";
+        }
+
+        $sql .= implode(", ", $updates);
+        $sql .= " WHERE id = '$currentId'";
+
+        // Exécution de la requête SQL si des changements ont été détectés
+        if (!empty($diff)) {
+            $conn->exec($sql);
+            echo "Question mise à jour avec succès.";
+        } else {
+            echo "Aucune modification détectée.";
+        }
+
+        // Redirection après un court délai
+        header("Refresh: 5; url=/admin/dashboard.php");
+    } catch (PDOException $e) {
+        // Gestion des erreurs
+        echo "Erreur lors de la mise à jour de la question: " . $e->getMessage();
+    }
+}
+//songer à rajouter la sécurité
 ?>
 
 <!DOCTYPE html>

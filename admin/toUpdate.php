@@ -1,15 +1,8 @@
 <?php
 require_once dirname(__DIR__) . '/config/conn.php';
 require_once dirname(__DIR__) . '/function/questions.fn.php';
-
-// $question = null; // Initialisation de la variable $question
-
-if (isset($_GET['id'])) {
-    $question = findQuestionById($conn, $_GET['id']); // Appel de la fonction pour récupérer la fiche technique 
-    // du jeu sélectionné sur la liste de jeux
-    var_dump($question);
-}
-    
+$conn = getPDOlink($config);
+$question = findQuestionById($conn, $_GET['id']); 
 ?>
 
 <!DOCTYPE html>

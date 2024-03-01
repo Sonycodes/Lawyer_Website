@@ -1,15 +1,11 @@
 <?php
 require_once '../config/conn.php'; 
 require_once '../function/questions.fn.php';
-
-$question = null; // Initialisation de la variable $question
-
-if (isset($_GET['id'])) {
-    $question = deleteQuestionById($conn, $_GET['id']); // Appel de la fonction pour récupérer la fiche technique 
-    // du jeu sélectionné sur la liste de jeux
-    var_dump($question);
-}
+$conn = getPDOlink($config);
+$currentId = $_POST['id'];
+$question = findQuestionById($conn,$currentId);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,10 +25,7 @@ if (isset($_GET['id'])) {
     <input type="hidden" name="id" value="<?php echo $question['id']; ?>">
     <button type="submit" class="btn btn-danger">Supprimer</button>
     </form>
-    <form action="dashboard.php" method="get">
-    <button type="submit" class="btn btn-warning">Ne pas supprimer</button>
-    </form>
-
+    <a href="dashboard.php" class="btn btn-warning">Ne pas supprimer</a>
 
 </body>
 </html>

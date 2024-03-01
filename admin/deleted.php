@@ -2,36 +2,43 @@
 require_once '../config/conn.php'; 
 require_once '../function/questions.fn.php';
 
-if(isset($_POST['id'])) {
-    $id = $_POST['id'];
+//recupérer 
+$currentId = $_POST['id'];
+// $delete = deleteQuestionById($conn, $currentId);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupération de l'ID à supprimer depuis le formulaire POST
+    $currentId = isset($_POST['id']) ? $_POST['id'] : null;
     
-    // Appel de la fonction pour supprimer la question
-    if(deleteQuestionById($conn, $id)) {
-        // La suppression a réussi
-        echo "L'élément a été supprimé avec succès.";
+    // Vérification que l'ID est valide
+    if ($currentId !== null) {
+        // Connexion à la base de données
+        $conn = getPDOlink($config); // Assurez-vous d'avoir défini $config auparavant avec les informations de connexion
+        
+        // Suppression de la question par son ID
+        try {
+            $delete = deleteQuestionById($conn, $currentId);
+            
+            // Vérification si la suppression a réussi
+            if ($delete) {
+                // Message de réussite
+                echo "Question supprimée avec succès.";
+                
+                // Redirection après un délai
+                header("Refresh: 3; url=/admin/dashboard.php");
+            } else {
+                // Message en cas d'échec de la suppression
+                echo "Une erreur s'est produite lors de la suppression de la question.";
+            }
+        } catch (PDOException $e) {
+            // Gestion des erreurs PDO
+            echo "Erreur: " . $e->getMessage();
+        }
     } else {
-        // La suppression a échoué
-        echo "Une erreur s'est produite lors de la suppression de l'élément.";
+        // Message en cas d'ID non valide
+        echo "ID non valide.";
     }
-} else {
-    echo "ID non spécifié.";
 }
+
+
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmation de suppression</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-</head>
-<body>
-
-<h1>Vous avez supprimé l'élément!</h1>
-    
-</body>
-</html>
