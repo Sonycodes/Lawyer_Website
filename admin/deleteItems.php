@@ -1,6 +1,14 @@
 <?php
 require_once '../config/conn.php'; 
 require_once '../function/questions.fn.php';
+
+$question = null; // Initialisation de la variable $question
+
+if (isset($_GET['id'])) {
+    $question = deleteQuestionById($conn, $_GET['id']); // Appel de la fonction pour récupérer la fiche technique 
+    // du jeu sélectionné sur la liste de jeux
+    var_dump($question);
+}
 ?>
 
 <!DOCTYPE html>
