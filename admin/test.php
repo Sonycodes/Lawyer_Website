@@ -129,6 +129,80 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+/* 
+
+"<h1> Etes-vous sûre de vouloir supprimer cet élément ? <h2>
+    <form action="deleted.php" method="post">
+    <input type="hidden" name="id" value="<?php echo $question['id']; ?>,<?php echo $article['id']; ?>">
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+    </form>
+    <a href="dashboard.php" class="btn btn-warning">Ne pas supprimer</a>" 
+    est ce que ça peut marcher pour informer du fait qu'on voudrait supprimer la question ou l'article, 
+    dépendant de ce qu'on a cliqué auparavant, pour pouvoir utiliser une page delete.php pour deux catégories 
+    différentes ?
+
+ChatGPT
+Oui, votre approche semble correcte pour gérer la suppression d'éléments, que ce soit une question ou un article,
+ en fonction de ce qui a été sélectionné précédemment. Cependant, vous devez adapter votre script deleted.php 
+ pour qu'il puisse gérer les suppressions en fonction des paramètres reçus.
+
+Voici comment vous pourriez procéder :
+
+Modifiez votre formulaire pour inclure une variable supplémentaire, par exemple type, pour indiquer le type d'élément à supprimer (question ou article).
+Dans deleted.php, analysez cette variable type pour décider comment traiter la suppression.
+
+Voici comment vous pourriez mettre en œuvre ces changements dans votre code :
+html
+Copy code
+<h1>Êtes-vous sûr de vouloir supprimer cet élément ?</h1>
+
+<form action="deleted.php" method="post">
+    <input type="hidden" name="id" value="<?php echo $question['id']; ?>,<?php echo $article['id']; ?>">
+    <!-- Ajouter un champ caché pour indiquer le type -->
+    <input type="hidden" name="type" value="<?php echo isset($question) ? 'question' : 'article'; ?>">
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+</form>
+<a href="dashboard.php" class="btn btn-warning">Ne pas supprimer</a>
+Dans deleted.php, vous pouvez récupérer la valeur de type pour décider comment traiter la suppression :
+
+php
+Copy code
+<?php
+// Vérifier si l'ID et le type ont été soumis
+if (isset($_POST['id'], $_POST['type'])) {
+    // Récupérer l'ID et le type depuis le formulaire
+    $id = $_POST['id'];
+    $type = $_POST['type'];
+
+    // Séparer les ID s'ils sont multiples
+    $ids = explode(',', $id);
+
+    // Traiter la suppression en fonction du type
+    switch ($type) {
+        case 'question':
+            // Supprimer les questions avec les ID fournis
+            foreach ($ids as $questionId) {
+                // Supprimer la question avec l'ID $questionId
+            }
+            break;
+        case 'article':
+            // Supprimer les articles avec les ID fournis
+            foreach ($ids as $articleId) {
+                // Supprimer l'article avec l'ID $articleId
+            }
+            break;
+        default:
+            // Type invalide
+            echo "Type invalide";
+            break;
+    }
+} else {
+    // ID ou type non fourni
+    echo "ID ou type non fourni";
+}
+?>
+Assurez-vous d'adapter la logique de suppression dans deleted.php en fonction du type d'élément à supprimer.
+
 
 
 

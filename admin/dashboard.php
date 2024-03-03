@@ -17,6 +17,7 @@ require_once '../function/articles.fn.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 
+
 <body>
     <div class="container">
         <h1 class="mt-5 mb-4">Administration - Gestion du Droit du Travail</h1>
@@ -24,31 +25,29 @@ require_once '../function/articles.fn.php';
         <!-- Nav tabs -->
         <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="questions-tab" data-toggle="tab" href="#questions" role="tab" aria-controls="questions" aria-selected="false">Questions</a>
+                <a class="nav-link active" id="questions-tab" data-toggle="tab" href="#questionsContent" role="tab" aria-controls="questions" aria-selected="false">Questions</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="articles-tab" data-toggle="tab" href="#articles" role="tab" aria-controls="articles" aria-selected="false">Articles</a>
+                <a class="nav-link" id="articles-tab" data-toggle="tab" href="#articlesContent" role="tab" aria-controls="articles" aria-selected="false">Articles</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="links-tab" data-toggle="tab" href="#links" role="tab" aria-controls="links" aria-selected="false">Liens</a>
+                <a class="nav-link" id="links-tab" data-toggle="tab" href="#linksContent" role="tab" aria-controls="links" aria-selected="false">Liens</a>
             </li>
         </ul>
 
         <?php
         $questions = findAllQuestions($conn);
+        $articles = findAllArticles($conn);
         ?>
 
         <!-- Tab panes -->
         <div class="tab-content">
             <!-- Questions -->
-            <div class="tab-pane fade show active" id="questions" role="tabpanel" aria-labelledby="questions-tab">
+            <div class="tab-pane fade show active" id="questionsContent" role="tabpanel" aria-labelledby="questions-tab">
                 <h2>Questions</h2>
                 <!-- Tableau pour afficher les questions -->
-                <table class="table">
                     <!-- Structure du tableau -->
                     <!-- Insérer les données dynamiquement ici -->
-
-
                     <?php foreach ($questions as $index => $question) { ?>
         <div class="accordion-item mb-4 shadow-sm">
             <h2 class="accordion-header" id="heading<?php echo $index; ?>">
@@ -76,24 +75,48 @@ require_once '../function/articles.fn.php';
             </div>
         </div>
     <?php } ?> 
-
-
                     <!-- Bouton Ajouter -->
                     <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addQuestionModal">Ajouter Question</button>
             </div>
+            
             <!-- Articles -->
-            <div class="tab-pane fade" id="articles" role="tabpanel" aria-labelledby="articles-tab">
+            <div class="tab-pane fade" id="articlesContent" role="tabpanel" aria-labelledby="articles-tab">
                 <h2>Articles</h2>
                 <!-- Bouton Ajouter -->
                 <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addArticleModal">Ajouter Article</button>
                 <!-- Tableau pour afficher les articles -->
-                <table class="table">
-                    <!-- Structure du tableau -->
-                    <!-- Insérer les données dynamiquement ici -->
-                </table>
+                <!-- Structure du tableau -->
+                <!-- Insérer les données dynamiquement ici -->
+                    <?php foreach ($articles as $i => $article) { ?>
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title heading<?php echo $i; ?>" id="heading<?php echo $article['titre']; ?>"></h5>
+                                <p> <?php echo $article['descrip']; ?></p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">
+                                    <a href="<?php echo $article['lien']; ?>"><?php echo $article['lien']; ?></a>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Boutons pour modifier et supprimer l'artcile -->
+                <div class="d-flex justify-content-end mt-2">
+                    <a href="toUpdate.php?id=<?php echo $article['id']; ?>" 
+                    class="btn btn-warning me-2">Modifier</a>
+                    <form action="deleteItems.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $article['id']; ?>">
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
+                </div>
             </div>
+    <?php } ?>
             <!-- Liens -->
-            <div class="tab-pane fade" id="links" role="tabpanel" aria-labelledby="links-tab">
+            <div class="tab-pane fade" id="linksContent" role="tabpanel" aria-labelledby="links-tab">
                 <h2>Liens</h2>
                 <!-- Bouton Ajouter -->
                 <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addLinkModal">Ajouter Lien</button>
