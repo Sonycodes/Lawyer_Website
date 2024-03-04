@@ -46,39 +46,38 @@ require_once '../function/articles.fn.php';
             <div class="tab-pane fade show active" id="questionsContent" role="tabpanel" aria-labelledby="questions-tab">
                 <h2>Questions</h2>
                 <!-- Tableau pour afficher les questions -->
-                    <!-- Structure du tableau -->
-                    <!-- Insérer les données dynamiquement ici -->
-                    <?php foreach ($questions as $index => $question) { ?>
-        <div class="accordion-item mb-4 shadow-sm">
-            <h2 class="accordion-header" id="heading<?php echo $index; ?>">
-                <button class="accordion-button collapsed bg-transparent fw-bold" type="button" 
-                data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $index; ?>" 
-                aria-expanded="false" aria-controls="collapse<?php echo $index; ?>">
-                    <?php echo $question['question']; ?>
-                </button>
-            </h2>
-            <div id="collapse<?php echo $index; ?>" class="accordion-collapse collapse" 
-            aria-labelledby="heading<?php echo $index; ?>">
-                <div class="accordion-body">
-                    <?php echo $question['reponse']; ?>
-                </div>
+                <!-- Structure du tableau -->
+                <!-- Insérer les données dynamiquement ici -->
+                <?php foreach ($questions as $index => $question) { ?>
+                    <div class="accordion-item mb-4 shadow-sm">
+                        <h2 class="accordion-header" id="heading<?php echo $index; ?>">
+                            <button class="accordion-button collapsed bg-transparent fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $index; ?>" aria-expanded="false" aria-controls="collapse<?php echo $index; ?>">
+                                <?php echo $question['question']; ?>
+                            </button>
+                        </h2>
+                        <div id="collapse<?php echo $index; ?>" class="accordion-collapse collapse" aria-labelledby="heading<?php echo $index; ?>">
+                            <div class="accordion-body">
+                                <?php echo $question['reponse']; ?>
+                            </div>
+                        </div>
+
+                        <!-- Boutons pour modifier la question -->
+                        <div class="d-flex justify-content-end mt-2">
+                            <a href="toUpdate.php?id=<?php echo $question['id']; ?>" class="btn btn-warning me-2">Modifier</a>
+                         <!-- Boutons pour  supprimer la question -->
+                            <form action="confirmdelete.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $question['id']; ?>">
+                                <input type="hidden" name="type" value="question">
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                            </form>
+
+                        </div>
+                    </div>
+                <?php } ?>
+                <!-- Bouton Ajouter -->
+                <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addQuestionModal">Ajouter Question</button>
             </div>
-            
-            <!-- Boutons pour modifier et supprimer la question -->
-            <div class="d-flex justify-content-end mt-2">
-                <a href="toUpdate.php?id=<?php echo $question['id']; ?>" 
-                class="btn btn-warning me-2">Modifier</a>
-                <form action="deleteItems.php" method="post">
-                    <input type="hidden" name="id" value="<?php echo $question['id']; ?>">
-                    <button type="submit" class="btn btn-danger">Supprimer</button>
-                </form>
-            </div>
-        </div>
-    <?php } ?> 
-                    <!-- Bouton Ajouter -->
-                    <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addQuestionModal">Ajouter Question</button>
-            </div>
-            
+
             <!-- Articles -->
             <div class="tab-pane fade" id="articlesContent" role="tabpanel" aria-labelledby="articles-tab">
                 <h2>Articles</h2>
@@ -87,45 +86,45 @@ require_once '../function/articles.fn.php';
                 <!-- Tableau pour afficher les articles -->
                 <!-- Structure du tableau -->
                 <!-- Insérer les données dynamiquement ici -->
-                    <?php foreach ($articles as $i => $article) { ?>
-                <div class="row row-cols-1 row-cols-md-2 g-4">
-                    <div class="col">
-                        <div class="card">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title heading<?php echo $i; ?>" id="heading<?php echo $article['titre']; ?>"></h5>
-                                <p> <?php echo $article['descrip']; ?></p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">
-                                    <a href="<?php echo $article['lien']; ?>"><?php echo $article['lien']; ?></a>
-                                </small>
+                <?php foreach ($articles as $i => $article) { ?>
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <div class="col">
+                            <div class="card">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title heading<?php echo $i; ?>" id="heading<?php echo $article['titre']; ?>"></h5>
+                                    <p> <?php echo $article['descrip']; ?></p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">
+                                        <a href="<?php echo $article['lien']; ?>"><?php echo $article['lien']; ?></a>
+                                    </small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Boutons pour modifier et supprimer l'artcile -->
-                <div class="d-flex justify-content-end mt-2">
-                    <a href="toUpdate.php?id=<?php echo $article['id']; ?>" 
-                    class="btn btn-warning me-2">Modifier</a>
-                    <form action="deleteItems.php" method="post">
-                        <input type="hidden" name="id" value="<?php echo $article['id']; ?>">
-                        <button type="submit" class="btn btn-danger">Supprimer</button>
-                    </form>
-                </div>
+                    <!-- Boutons pour modifier et supprimer l'artcile -->
+                    <div class="d-flex justify-content-end mt-2">
+                        <a href="toUpdate.php?id=<?php echo $article['id']; ?>" class="btn btn-warning me-2">Modifier</a>
+                        <form action="confirmdelete.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo $article['id']; ?>">
+                            <input type="hidden" name="type" value="article">
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </div>
             </div>
-    <?php } ?>
-            <!-- Liens -->
-            <div class="tab-pane fade" id="linksContent" role="tabpanel" aria-labelledby="links-tab">
-                <h2>Liens</h2>
-                <!-- Bouton Ajouter -->
-                <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addLinkModal">Ajouter Lien</button>
-                <!-- Tableau pour afficher les liens -->
-                <table class="table">
-                    <!-- Structure du tableau -->
-                    <!-- Insérer les données dynamiquement ici -->
-                </table>
-            </div>
+        <?php } ?>
+        <!-- Liens -->
+        <div class="tab-pane fade" id="linksContent" role="tabpanel" aria-labelledby="links-tab">
+            <h2>Liens</h2>
+            <!-- Bouton Ajouter -->
+            <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addLinkModal">Ajouter Lien</button>
+            <!-- Tableau pour afficher les liens -->
+            <table class="table">
+                <!-- Structure du tableau -->
+                <!-- Insérer les données dynamiquement ici -->
+            </table>
+        </div>
         </div>
 
     </div>
