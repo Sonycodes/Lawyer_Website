@@ -26,8 +26,11 @@ require_once '../function/questions.fn.php';
           exit();
       }
   
-      // Redirection vers une dashboard
-      header("Location: dashboard.php");
+        // Message de réussite
+        echo "Question supprimée avec succès";
+
+        // Redirection après un court délai
+        header("Refresh: 3; url=/admin/dashboard.php");
       exit();
   } else {
       // Gérer le cas où l'ID ou le type n'est pas défini
