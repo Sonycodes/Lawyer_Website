@@ -6,6 +6,7 @@ require_once '../function/questions.fn.php';
 // $currentId = $_POST['id'];
 // $delete = deleteQuestionById($conn, $currentId);
   $conn = getPDOlink($config); 
+  $type = $_POST['type'];
   // deleted.php 
   // Vérifier si l'ID et le type sont définis dans la requête POST
   
@@ -27,7 +28,7 @@ require_once '../function/questions.fn.php';
       }
   
         // Message de réussite
-        echo "Question supprimée avec succès";
+        echo "$type supprimée avec succès";
 
         // Redirection après un court délai
         header("Refresh: 3; url=/admin/dashboard.php");
