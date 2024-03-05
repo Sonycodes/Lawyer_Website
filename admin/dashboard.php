@@ -75,7 +75,7 @@ require_once '../function/articles.fn.php';
                     </div>
                 <?php } ?>
                 <!-- Bouton Ajouter -->
-                <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addQuestionModal">Ajouter Question</button>
+                <a href="add.php" class="btn btn-primary mb-3">Ajouter une Question</a>
             </div>
 
             <!-- Articles -->
@@ -93,7 +93,7 @@ require_once '../function/articles.fn.php';
                                 <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title heading<?php echo $i; ?>" id="heading<?php echo $article['titre']; ?>"></h5>
-                                    <p> <?php echo $article['descrip']; ?></p>
+                                    <p> <?php echo $article['description']; ?></p>
                                 </div>
                                 <div class="card-footer">
                                     <small class="text-muted">
