@@ -18,7 +18,6 @@ require_once '../function/questions.fn.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
-        
         <div class="d-flex flex-column justify-content-center align-items-center">
             <h2>Ajouter une question</h2>
             <form action="addQuestion.php" method="post" class="d-flex flex-column justify-content-center align-items-center"><br>
