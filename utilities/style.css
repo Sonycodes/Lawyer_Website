@@ -1,10 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Namdhinggo:wght@400;500;600;700;800&display=swap');
 
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body{
  background-color: #f5ecd4 !important;
  font-family: 'Source Serif 4';
 }
+p{
+    margin-bottom: 0 !important;
+}
+.text-duck{
+     color: #175667 !important; 
+}
+
+.text-gray{
+    color: #4b5d5d !important; 
+}
+.display-1{
+  font-size: 9em !important;
+  font-family: "Namdhinggo", serif;
+}
+
+.eggshell {
+    color: #F5ECD4 ;
+}.bg-container{
+    background-color: #f5e4b8;
+}
+
+.bg-light-beige{
+ background-color: #f5ecd4 !important; 
+}
+
 .accordion-button:not(.collapsed) {
     background-color: #f5e7c4 !important;
 }
@@ -43,11 +73,10 @@ body{
 
 
 .flip-card {
-    width: 300px;
-    height: 300px;
-    perspective: 1000px;
-    padding: auto;
-
+    min-width: 18em;
+    height: 18em;
+    /* perspective: 1000px;
+    padding: auto; */
 }
   
 .flip-card-inner {
@@ -91,3 +120,15 @@ body{
 .compImg{
     font-size: 100px;
 }
+/* footer : ca marche pas */
+footer{
+    background-color: #336975; 
+    color: #F5ECD4;
+}
+.container-fluid {
+    margin: 0 !important;
+    padding: 0  !important;
+}
+
+
+

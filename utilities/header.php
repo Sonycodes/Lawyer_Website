@@ -1,3 +1,7 @@
+<?php
+include 'competence_table.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,3 +22,4 @@
 
     </head>
 <body>
+    <main style="overflow-x: hidden;">
