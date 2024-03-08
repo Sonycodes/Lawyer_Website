@@ -1,6 +1,6 @@
 <?php
 include_once './utilities/header.php';
-include_once './utilities/nav_general.html';
+include_once './utilities/nav_general.php';
 ?>
 
 
@@ -23,6 +23,9 @@ include_once './utilities/nav_general.html';
         include './utilities/link_card.php'
         ?>
     </section>
+    <?php
+include_once './utilities/footer_general.php'
+?>
 
 
 

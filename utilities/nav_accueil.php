@@ -6,5 +6,5 @@
     </div>
 </div>
 <?php 
-include_once 'nav_general.html';
+include_once 'nav_general.php';
 ?>

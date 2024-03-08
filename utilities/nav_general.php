@@ -13,12 +13,12 @@
                     </div>
                     <div class="col-md">
                         <li class="nav-item flex-grow-1">
-                            <a class="nav-link" href="#competences">Compétences</a>
+                            <a class="nav-link" href="../competences.php">Compétences</a>
                         </li>
                     </div>
                     <div class="col-md">
                         <li class="nav-item flex-grow-1">
-                            <a class="nav-link" href="#">Honoraires</a>
+                            <a class="nav-link" href="../honoraires.php">Honoraires</a>
                         </li>
                     </div>
                     <div class="col-md">
@@ -36,6 +36,21 @@
         </div>
     </div>
 </nav>
+<?php 
+$domain = 'lawyer-website/';
+// Obtient l'URL actuelle
+$current_url = $_SERVER['SCRIPT_NAME'];
 
-</body>
-</html>
+// Vérifie si l'URL actuelle n'est pas celle de la page index
+if ($current_url !== '/index.php' && $current_url !== $domain) {
+    echo '
+    <div class="container d-flex flex-column justify-content-center">
+    <img src="/assets/logo/logo_title.svg" class="img-fluid" style="max-height: 30em;">
+    <h1 class="text-center text-duck">'. $title .'</h1>
+     </div>
+    '
+    
+   
+    ;
+}
+?>

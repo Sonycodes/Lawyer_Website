@@ -29,4 +29,3 @@ include './utilities/rendez-vous.php';
 <?php
 include_once './utilities/footer.php'
 ?>
-</html>
