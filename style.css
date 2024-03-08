@@ -35,19 +35,42 @@ p{
 
 
 .eggshell {
-    color: #F5ECD4 ;
+    color: #F5ECD4 !important;
 }.bg-container{
     background-color: #f5e4b8;
+    z-index: -2;
 }
 
 .bg-light-beige{
  background-color: #f5ecd4 !important; 
 }
+.bg-duck{
+    background-color: #175667 !important;
+   }
 
 .bg-header {
     background-color: #03495E !important;
     opacity: 0.82;
 }
+
+.bg-leaf {
+    position: relative;
+}
+
+.bg-leaf:before {
+    content: "";
+    background: url(/assets/bg-leaf.svg) center / cover no-repeat;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
 
 a {
     color: #F4BF31 !important; 
