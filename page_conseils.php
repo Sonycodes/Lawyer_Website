@@ -23,6 +23,8 @@ include_once './utilities/nav_general.php';
         include './utilities/link_card.php'
         ?>
     </section>
+
+</div>
     <?php
 include_once './utilities/footer_general.php'
 ?>

@@ -88,3 +88,7 @@ include_once './utilities/nav_general.php';
     }
 ?>
 
+<?php
+include_once './utilities/footer_general.php'
+?>
+

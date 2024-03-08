@@ -31,8 +31,5 @@ foreach ($titles as $pageTitle => $url) {
 if (empty($title)) {
     $title = 'Jane Becker Avocate';
 }
-
-
-// var_dump($current_url);
 ?>
 

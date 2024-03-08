@@ -43,14 +43,15 @@ $current_url = $_SERVER['SCRIPT_NAME'];
 
 // Vérifie si l'URL actuelle n'est pas celle de la page index
 if ($current_url !== '/index.php' && $current_url !== $domain) {
-    echo '
-    <div class="container d-flex flex-column justify-content-center">
-    <img src="/assets/logo/logo_title.svg" class="img-fluid" style="max-height: 30em;">
-    <h1 class="text-center text-duck">'. $title .'</h1>
-     </div>
-    '
-    
-   
-    ;
+    echo '<div class="container d-flex flex-column justify-content-center my-5">';
+    echo '<img src="/assets/logo/logo_title.svg" class="img-fluid" style="height: 10em;">';
+
+    // Vérifie si l'URL actuelle n'est pas celle de la page de contact
+    if ($current_url !== '/page_contact.php') {
+        echo '<h1 class="text-center text-duck">' . $title . '</h1>';
+    }
+
+    echo '</div>';
 }
+
 ?>

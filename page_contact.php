@@ -3,6 +3,13 @@ include_once './utilities/header.php';
 include_once './utilities/nav_general.php';
 ?>
 
+
+<section class="container col-5 m-auto text-center text-muted">
+        <p class="h6">Prêts à défendre vos droits? <br>
+Contactez-moi dès maintenant pour une assistance juridique fiable et personnalisée.</p>
+    </section>
+
+
 <div class="container m-auto py-5 d-md-flex align-items-end">
 
     <div class="container bg-container bg-leaf  rounded-3 shadow text-duck text-center mx-md-5 col-md-3 ">
