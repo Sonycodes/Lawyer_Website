@@ -21,7 +21,7 @@
                             <!-- Affichage de la description -->
                             <p class="h6"><?php echo $description; ?></p>
                             <div>
-                                <p>Si vous souhaitez en savoir plus,
+                                <p class="pt-3">Si vous souhaitez en savoir plus,
                                     <br> <a href="#">cliquez-ici</a></p>
                             </div>
                         </div>
