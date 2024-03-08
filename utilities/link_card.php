@@ -1,6 +1,5 @@
-<?php include_once 'header.php'; 
-require_once '../config/conn.php'; 
-require_once '../function/articles.fn.php';
+<?php
+require_once __DIR__.'/../function/articles.fn.php';
 ?>
 
 <?php
@@ -10,12 +9,13 @@ $conn = getPDOlink($config);
 $articles = findAllArticles($conn);
 ?>
 <!-- Afficher les cartes en rangées de trois -->
-<div class="row justify-content-center container mt-5">
+<div class="container row m-auto py-5">
   <?php foreach ($articles as $article): ?>
-  <div class="col-md-4 justify-content-center  ">
-    <div class="card mb-4" style="width: 20rem; height: 30rem;">
+  <div class="col-md-4">
+    <div class="card m-auto" style="width: 20rem; height: 25rem;">
       <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <?php
+      <div class="container" style="height: 10em;  overflow: hidden;">
+          <?php
         // Récupérer le contenu de la page Web
         $html = file_get_contents($article['lien']);
 
@@ -23,12 +23,13 @@ $articles = findAllArticles($conn);
         if (preg_match('/<meta\s+property="og:image"\s+content="([^"]+)"/i', $html, $matches)) {
             $image_url = $matches[1];
             // Afficher l'image dans votre page Web
-            echo '<img src="' . $image_url . '" class="card-img-top mt-2 "  style="height: 15rem;" alt="Image associée à la page">';
+            echo '<img src="' . $image_url . '" class="card-img-top mt-2 img-fluid" style="width: 100%; height: 100%; object-fit: cover;" alt="Image associée au lien">';
         } else {
             echo "Aucune image trouvée";
         }
       ?>
-      <div class="card-body">
+      </div>
+      <div class="px-1">
         <h5 class="card-title"><?php echo $article['titre']; ?></h5>
         <a href="<?php echo $article['lien']; ?>" class="card-link"><?php echo $article['lien']; ?></a>
         <p class="card-text"><?php echo $article['description']; ?></p>

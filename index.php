@@ -1,6 +1,7 @@
 <?php
 include_once './utilities/header.php';
-include_once './utilities/nav_accueil.html';
+include_once './utilities/nav_accueil.php';
+
 ?>
 <div class="container-fluid mt-5">
   <div class="row">

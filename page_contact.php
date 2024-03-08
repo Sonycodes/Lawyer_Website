@@ -61,8 +61,6 @@ include_once './utilities/nav_general.html';
     include './utilities/contact_form/form.php';
     ?>
 </div>
-
-</body>
 <?php
 include_once './utilities/footer_general.php'
 ?>

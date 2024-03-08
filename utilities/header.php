@@ -1,5 +1,6 @@
 <?php
 include 'competence_table.php';
+require_once __DIR__.'/../config/conn.php'; 
 ?>
 
 <!DOCTYPE html>

@@ -1,5 +1,5 @@
 <!-- cards compétences -->
-<div class="container rounded-3 pt-5 ">
+<div class="container rounded-3 pt-5 " id="competences">
     <div class="row justify-content-center">
         <?php
         // Parcourir le tableau de compétences
