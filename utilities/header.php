@@ -1,5 +1,4 @@
 <?php
-include 'competence_table.php';
 include 'url.php';
 require_once __DIR__.'/../config/conn.php'; 
 ?>

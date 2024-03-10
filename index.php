@@ -20,7 +20,7 @@ include_once './utilities/nav_accueil.php';
 
 <?php
 include './utilities/section_about.php';
-include './utilities/cards.php';
+require_once ('utilities/aboutCards/cards.php');
 include './utilities/section_cabinet.php';
 include './utilities/rendez-vous.php';
 ?>
