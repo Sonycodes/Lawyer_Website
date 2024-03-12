@@ -1,6 +1,6 @@
 <?php
-include_once './utilities/header.php';
-include_once './utilities/nav_general.php';
+include_once './utilities/composant_general/header.php';
+include_once './utilities/navigation/nav_general.php';
 ?>
 
 
@@ -16,7 +16,7 @@ include_once './utilities/nav_general.php';
     </section>
     <section class="container">
         <?php
-        include './utilities/questions_accordeon.php'
+        include './utilities/composants/questions_accordeon.php'
         ?>
     </section>
     <section class="container col-10">
@@ -26,7 +26,7 @@ informer et vous guider efficacement dans vos démarches professionnelles.</p>
     </section>
     <section class="container  row m-auto">
         <?php
-        include './utilities/link_card.php'
+        include './utilities/composants/link_card.php'
         ?>
     </section>
 
@@ -48,23 +48,8 @@ include_once './utilities/footer_general.php'
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
-include_once './utilities/footer_general.php'
+include_once './utilities/composant_general/footer_general.php'
 ?>
 
 </html>

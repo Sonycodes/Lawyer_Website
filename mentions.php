@@ -1,6 +1,6 @@
 <?php
-include_once './utilities/header.php';
-include_once './utilities/nav_general.php';
+include_once './utilities/composant_general/header.php';
+include_once './utilities/navigation/nav_general.php';
 ?>
 
 
@@ -131,5 +131,5 @@ par email : <a href="contact@janebecker-avocate.fr">contact@janebecker-avocate.f
 
 </section>
 <?php
-include_once './utilities/footer_general.php'
+include_once './utilities/composant_general/footer_general.php'
 ?>

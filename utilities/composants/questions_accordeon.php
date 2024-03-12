@@ -1,6 +1,4 @@
- <?php
- include __DIR__.'/../function/questions.fn.php'; 
- ?>
+
  <div class="container py-5">  
         <div class="row">
           <div class="col">

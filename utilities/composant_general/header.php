@@ -1,6 +1,9 @@
 <?php
-include 'url.php';
-require_once __DIR__.'/../config/conn.php'; 
+// include '/navigation/url.php';
+require_once dirname(__DIR__, 2) . '/config/conn.php';
+include '/wamp64/www/Lawyer_Website/utilities/navigation/url.php';
+require_once dirname(__DIR__, 2) . '/function/questions.fn.php';
+require_once dirname(__DIR__, 2) . '/function/articles.fn.php'; 
 ?>
 
 <!DOCTYPE html>

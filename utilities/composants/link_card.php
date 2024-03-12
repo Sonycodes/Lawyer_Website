@@ -1,6 +1,3 @@
-<?php
-require_once __DIR__.'/../function/articles.fn.php';
-?>
 
 <?php
 

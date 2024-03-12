@@ -1,6 +1,6 @@
 <?php
-include_once './utilities/header.php';
-include_once './utilities/nav_accueil.php';
+include_once './utilities/composant_general/header.php';
+include_once './utilities/navigation/nav_accueil.php';
 
 ?>
 <div class="container-fluid mt-5">
@@ -19,13 +19,13 @@ include_once './utilities/nav_accueil.php';
 </div>
 
 <?php
-include './utilities/section_about.php';
-require_once ('utilities/aboutCards/cards.php');
-include './utilities/section_cabinet.php';
-include './utilities/rendez-vous.php';
+include './utilities/composants/section_about.php';
+require_once ('utilities/composants/aboutCards/cards.php');
+include './utilities/composants/section_cabinet.php';
+include './utilities/composants/rendez-vous.php';
 ?>
 
 </body>
 <?php
-include_once './utilities/footer.php'
+include_once './utilities/composant_general/footer.php'
 ?>
