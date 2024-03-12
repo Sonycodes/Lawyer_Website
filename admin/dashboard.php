@@ -1,7 +1,9 @@
 <?php
-require_once '../function/questions.fn.php';
-require_once '../function/ressources.fn.php';
-require_once '../function/articles.fn.php';
+require_once '../config/conn.php';
+require_once '../function/database.fn.php';
+require_once dirname(__DIR__) . '/function/questions.fn.php';
+require_once dirname(__DIR__) . '/function/ressources.fn.php';
+require_once dirname(__DIR__) . '/function/articles.fn.php';
 
 ?>
 <!DOCTYPE html>

@@ -1,5 +1,6 @@
 <?php 
 require_once dirname(__DIR__) . '/config/conn.php';
+
 require_once dirname(__DIR__) . '/function/questions.fn.php';
 
 // Récupérer les données extérieures
