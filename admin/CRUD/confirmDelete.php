@@ -1,6 +1,6 @@
 <?php
-require_once '../config/conn.php'; 
-require_once '../function/questions.fn.php';
+require_once dirname(__DIR__, 2) . '/config/conn.php';
+require_once dirname(__DIR__, 2) . '/function/questions.fn.php';
 $conn = getPDOlink($config);
 $currentId = $_POST['id'];
 // $question = findQuestionById($conn,$currentId);
@@ -33,6 +33,6 @@ if(isset($_POST['type']) && ($_POST['type'] === 'question' || $_POST['type'] ===
         <input type="hidden" name="type" value="<?php echo $type; ?>">
         <button type="submit" class="btn btn-danger">Supprimer</button>
     </form>
-    <a href="dashboard.php" class="btn btn-warning">Ne pas supprimer</a>
+    <a href="../dashboard.php" class="btn btn-warning">Ne pas supprimer</a>
 </body>
 </html>

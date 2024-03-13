@@ -1,7 +1,6 @@
 <?php 
-//  $conn = getPDOlink($config); 
-require_once '../config/conn.php'; 
-require_once '../function/questions.fn.php';
+require_once dirname(__DIR__, 2) . '/config/conn.php';
+require_once dirname(__DIR__, 2) . '/function/questions.fn.php';
 
 //récupérer les données rentrées dans le formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

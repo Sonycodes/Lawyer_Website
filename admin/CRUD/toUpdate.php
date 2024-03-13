@@ -1,6 +1,6 @@
 <?php
-require_once dirname(__DIR__) . '/config/conn.php';
-require_once dirname(__DIR__) . '/function/questions.fn.php';
+require_once dirname(__DIR__, 2) . '/config/conn.php';
+require_once dirname(__DIR__, 2) . '/function/questions.fn.php';
 $conn = getPDOlink($config);
 $question = findQuestionById($conn, $_GET['id']); 
 ?>
@@ -15,7 +15,7 @@ $question = findQuestionById($conn, $_GET['id']);
 
 <body>
     <div class="card decoration-none">
-    <form action="updated.php" method="post">
+    <form action="update.php" method="post">
         <input type="hidden" name="id" value="<?= isset($question['id']) ? $question['id'] : '' ?>">
         <ul>
             <li>

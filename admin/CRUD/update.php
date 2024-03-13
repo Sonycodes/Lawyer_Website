@@ -1,7 +1,6 @@
 <?php 
-require_once dirname(__DIR__) . '/config/conn.php';
-
-require_once dirname(__DIR__) . '/function/questions.fn.php';
+require_once dirname(__DIR__, 2) . '/config/conn.php';
+require_once dirname(__DIR__, 2) . '/function/questions.fn.php';
 
 // Récupérer les données extérieures
 $currentId = $_POST['id'];

@@ -73,9 +73,9 @@ if (!isset($_SESSION['user'])) {
 
                         <!-- Boutons pour modifier la question -->
                         <div class="d-flex justify-content-end mt-2">
-                            <a href="toUpdate.php?id=<?php echo $question['id']; ?>" class="btn btn-warning me-2">Modifier</a>
+                            <a href="./CRUD/toUpdate.php?id=<?php echo $question['id']; ?>" class="btn btn-warning me-2">Modifier</a>
                          <!-- Boutons pour  supprimer la question -->
-                            <form action="confirmdelete.php" method="post">
+                            <form action="./CRUD/confirmdelete.php" method="post">
                                 <input type="hidden" name="id" value="<?php echo $question['id']; ?>">
                                 <input type="hidden" name="type" value="question">
                                 <button type="submit" class="btn btn-danger">Supprimer</button>
@@ -85,7 +85,7 @@ if (!isset($_SESSION['user'])) {
                     </div>
                 <?php } ?>
                 <!-- Bouton Ajouter -->
-                <a href="add.php" class="btn btn-primary mb-3">Ajouter une Question</a>
+                <a href="./CRUD/add.php" class="btn btn-primary mb-3">Ajouter une Question</a>
             </div>
 
 
@@ -119,8 +119,8 @@ if (!isset($_SESSION['user'])) {
                     </div>
                     <!-- Boutons pour modifier et supprimer l'article -->
                     <div class="d-flex justify-content-end mt-2">
-                        <a href="toUpdate.php?id=<?php echo $article['id']; ?>" class="btn btn-warning me-2">Modifier</a>
-                        <form action="confirmdelete.php" method="post">
+                        <a href="./CRUD/toUpdate.php?id=<?php echo $article['id']; ?>" class="btn btn-warning me-2">Modifier</a>
+                        <form action="./CRUD/confirmdelete.php" method="post">
                             <input type="hidden" name="id" value="<?php echo $article['id']; ?>">
                             <input type="hidden" name="type" value="article">
                             <button type="submit" class="btn btn-danger">Supprimer</button>
