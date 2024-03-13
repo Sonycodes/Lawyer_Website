@@ -5,6 +5,12 @@ require_once dirname(__DIR__) . '/function/questions.fn.php';
 require_once dirname(__DIR__) . '/function/ressources.fn.php';
 require_once dirname(__DIR__) . '/function/articles.fn.php';
 
+session_start();
+if (!isset($_SESSION['user'])) {
+    header("Location: ./login/login.php");
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +29,11 @@ require_once dirname(__DIR__) . '/function/articles.fn.php';
 <body>
     <div class="container">
         <h1 class="mt-5 mb-4">Administration - Gestion du Droit du Travail</h1>
-
+        <div class="d-flex justify-content-between">
+             <p>Bienvenue, <?php echo $_SESSION['user']; ?>!</p>
+    <a href="./login/logout.php">Se déconnecter</a> 
+        </div>
+  
         <!-- Nav tabs -->
         <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
             <li class="nav-item">
