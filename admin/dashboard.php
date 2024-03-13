@@ -31,10 +31,11 @@ if (!isset($_SESSION['user'])) {
     <div class="container">
         <h1 class="mt-5 mb-4">Administration - Gestion du Droit du Travail</h1>
         <div class="d-flex justify-content-between">
-             <p>Bienvenue, <?php echo $_SESSION['user']; ?>!</p>
-    <a href="./login/logout.php">Se déconnecter</a> 
+            <p>Bienvenue, <?php echo $_SESSION['user']; ?>!</p>
+            <a href="../index.php">Visualiser le site</a>
+            <a href="./login/logout.php">Se déconnecter</a>
         </div>
-  
+
         <!-- Nav tabs -->
         <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
             <li class="nav-item">
@@ -73,11 +74,19 @@ if (!isset($_SESSION['user'])) {
 
                         <!-- Boutons pour modifier la question -->
                         <div class="d-flex justify-content-end mt-2">
-                            <a href="./CRUD/toUpdate.php?id=<?php echo $question['id']; ?>" class="btn btn-warning me-2">Modifier</a>
-                         <!-- Boutons pour  supprimer la question -->
+
+                            <!-- Lien pour modifier une question -->
+                            <a href="./CRUD/updateForm.php?type=question&id=<?php echo $question['id']; ?>" class="btn btn-warning me-2">Modifier</a>
+
+
+                            <!-- Boutons supprimer question -->
+                            <!-- Formulaire pour la suppression d'une question -->
                             <form action="./CRUD/confirmdelete.php" method="post">
+                                <!-- Champ caché contenant l'ID de la question à supprimer -->
                                 <input type="hidden" name="id" value="<?php echo $question['id']; ?>">
+                                <!-- Champ caché indiquant le type de l'élément à supprimer (dans ce cas, une question) -->
                                 <input type="hidden" name="type" value="question">
+                                <!-- Bouton de soumission du formulaire pour la suppression -->
                                 <button type="submit" class="btn btn-danger">Supprimer</button>
                             </form>
 
@@ -85,18 +94,15 @@ if (!isset($_SESSION['user'])) {
                     </div>
                 <?php } ?>
                 <!-- Bouton Ajouter -->
-                <a href="./CRUD/add.php" class="btn btn-primary mb-3">Ajouter une Question</a>
+                <a href="./CRUD/addElement.php?type=question" class="btn btn-primary mb-3">Ajouter une Question</a>
             </div>
 
 
-
-
-
-            <!-- Articles -->
+    <!-- Articles -->
             <div class="tab-pane fade" id="articlesContent" role="tabpanel" aria-labelledby="articles-tab">
                 <h2>Articles</h2>
-                <!-- Bouton Ajouter -->
-                <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addArticleModal">Ajouter Article</button>
+                 <!-- Bouton add -->
+                 <a href="./CRUD/addElement.php?type=article" class="btn btn-primary mb-3">Ajouter un Article</a>
                 <!-- Tableau pour afficher les articles -->
                 <!-- Structure du tableau -->
                 <!-- Insérer les données dynamiquement ici -->
@@ -119,16 +125,17 @@ if (!isset($_SESSION['user'])) {
                     </div>
                     <!-- Boutons pour modifier et supprimer l'article -->
                     <div class="d-flex justify-content-end mt-2">
-                        <a href="./CRUD/toUpdate.php?id=<?php echo $article['id']; ?>" class="btn btn-warning me-2">Modifier</a>
+                        <a href="./CRUD/updateForm.php?type=article&id=<?php echo $article['id']; ?>" class="btn btn-warning me-2">Modifier</a>
+
                         <form action="./CRUD/confirmdelete.php" method="post">
                             <input type="hidden" name="id" value="<?php echo $article['id']; ?>">
                             <input type="hidden" name="type" value="article">
                             <button type="submit" class="btn btn-danger">Supprimer</button>
                         </form>
                     </div>
-            
-        <?php } ?>
-        </div>
+
+                <?php } ?>
+            </div>
         </div>
 
     </div>

@@ -31,19 +31,6 @@ informer et vous guider efficacement dans vos démarches professionnelles.</p>
     </section>
 
 </div>
-    <?php
-include_once './utilities/footer_general.php'
-?>
-
-
-
-
-
-
-
-
-
-
 
 </div>
 

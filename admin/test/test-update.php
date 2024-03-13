@@ -4,7 +4,11 @@ require_once dirname(__DIR__, 2) . '/function/questions.fn.php';
 
 // Récupérer les données extérieures
 $currentId = $_POST['id'];
-$currentData = findQuestionById($conn, $currentId); // Assurez-vous d'avoir une fonction de ce type pour récupérer les données actuelles
+$currentData = findQuestionById($conn, $currentId); 
+
+// Sécurité des données : Vous avez déjà utilisé htmlspecialchars pour éviter les attaques XSS. Cependant, lors de la mise à jour de données dans la base de données, assurez-vous d'utiliser des requêtes préparées pour éviter les injections SQL. Utiliser des requêtes préparées permet également de s'assurer que les données sont correctement échappées.
+
+// Gestion des valeurs inchangées : Dans votre code actuel, vous vérifiez chaque champ pour voir s'il a changé avant de l'ajouter à la chaîne de mise à jour. C'est une bonne pratique pour éviter des mises à jour inutiles, mais vous pouvez également ajouter une condition pour vérifier si des champs ont été modifiés pour éviter d'exécuter la requête SQL inutilement.
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupération des valeurs du formulaire

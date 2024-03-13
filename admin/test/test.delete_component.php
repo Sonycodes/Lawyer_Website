@@ -78,4 +78,32 @@ if(isset($_POST['id']) && isset($_POST['type'])) {
 }
 ?>
 
-?>
+<div class="d-flex flex-column justify-content-center align-items-center">
+        <h2>Ajouter une question</h2>
+        <form action="addQuestion.php" method="post" class="d-flex flex-column justify-content-center align-items-center"><br>
+
+          <!-- Formulaire questions -->
+            <div class="question">
+                    <!-- Champ caché indiquant le type de l'élément à ajouter (ici question) -->
+            <input type="hidden" name="type" value="<?php echo $type; ?>">
+            <label for="question">Question : </label>
+            <input type="text" name="question"><br>
+            <label for="reponse">Réponse : </label>
+            <textarea name="reponse" style="height: 100px"></textarea><br>
+            </div>
+
+            <!-- Formulaire article -->
+            <div class="article">
+                    <!-- Champ caché indiquant le type de l'élément à ajouter (ici articles) -->
+            <input type="hidden" name="type" value="<?php echo $type; ?>">
+            <label for="titre">Titre : </label>
+            <input type="titre" name="titre"><br>
+            <label for="lien">Lien : </label>
+            <input type="lien" name="lien"><br>
+            <label for="description">Description: </label>
+            <textarea name="description" style="height: 100px"></textarea><br>
+            </div>
+
+            <input type="submit" value="Ajouter"><br>
+        </form>
+    </div>

@@ -19,7 +19,7 @@ function findAllArticles($conn){
 function findArticleById($conn, $currentID) {
     try {
         // Préparation de la requête SQL pour sélectionner l'article avec l'ID spécifié
-        $sql = "SELECT id, titre, lien, descrip FROM articles WHERE id = :id";
+        $sql = "SELECT id, titre, lien, `description` FROM articles WHERE id = :id";
         
         // Préparation de la requête
         $stmt = $conn->prepare($sql);
