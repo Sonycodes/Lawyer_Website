@@ -5,6 +5,7 @@ require_once dirname(__DIR__) . '/function/questions.fn.php';
 require_once dirname(__DIR__) . '/function/ressources.fn.php';
 require_once dirname(__DIR__) . '/function/articles.fn.php';
 
+//vérifie si on s'est connécté sinon redirection vers page de connexion
 session_start();
 if (!isset($_SESSION['user'])) {
     header("Location: ./login/login.php");
@@ -41,9 +42,6 @@ if (!isset($_SESSION['user'])) {
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="articles-tab" data-toggle="tab" href="#articlesContent" role="tab" aria-controls="articles" aria-selected="false">Articles</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="links-tab" data-toggle="tab" href="#linksContent" role="tab" aria-controls="links" aria-selected="false">Liens</a>
             </li>
         </ul>
 
@@ -90,6 +88,10 @@ if (!isset($_SESSION['user'])) {
                 <a href="add.php" class="btn btn-primary mb-3">Ajouter une Question</a>
             </div>
 
+
+
+
+
             <!-- Articles -->
             <div class="tab-pane fade" id="articlesContent" role="tabpanel" aria-labelledby="articles-tab">
                 <h2>Articles</h2>
@@ -115,7 +117,7 @@ if (!isset($_SESSION['user'])) {
                             </div>
                         </div>
                     </div>
-                    <!-- Boutons pour modifier et supprimer l'artcile -->
+                    <!-- Boutons pour modifier et supprimer l'article -->
                     <div class="d-flex justify-content-end mt-2">
                         <a href="toUpdate.php?id=<?php echo $article['id']; ?>" class="btn btn-warning me-2">Modifier</a>
                         <form action="confirmdelete.php" method="post">
@@ -124,23 +126,12 @@ if (!isset($_SESSION['user'])) {
                             <button type="submit" class="btn btn-danger">Supprimer</button>
                         </form>
                     </div>
-            </div>
+            
         <?php } ?>
-        <!-- Liens -->
-        <div class="tab-pane fade" id="linksContent" role="tabpanel" aria-labelledby="links-tab">
-            <h2>Liens</h2>
-            <!-- Bouton Ajouter -->
-            <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addLinkModal">Ajouter Lien</button>
-            <!-- Tableau pour afficher les liens -->
-            <table class="table">
-                <!-- Structure du tableau -->
-                <!-- Insérer les données dynamiquement ici -->
-            </table>
         </div>
         </div>
 
     </div>
-    <!-- Modals pour les formulaires d'ajout, de modification et de suppression -->
 
     <!-- Modal d'ajout de question -->
     <div class="modal fade" id="addQuestionModal" tabindex="-1" role="dialog" aria-labelledby="addQuestionModalLabel" aria-hidden="true">
@@ -151,12 +142,6 @@ if (!isset($_SESSION['user'])) {
     <div class="modal fade" id="addArticleModal" tabindex="-1" role="dialog" aria-labelledby="addArticleModalLabel" aria-hidden="true">
         <!-- Contenu du modal -->
     </div>
-
-    <!-- Modal d'ajout de lien -->
-    <div class="modal fade" id="addLinkModal" tabindex="-1" role="dialog" aria-labelledby="addLinkModalLabel" aria-hidden="true">
-        <!-- Contenu du modal -->
-    </div>
-
 
 
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
