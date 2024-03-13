@@ -94,7 +94,7 @@ if (!isset($_SESSION['user'])) {
                     </div>
                 <?php } ?>
                 <!-- Bouton Ajouter -->
-                <a href="./CRUD/addElement.php?type=question" class="btn btn-primary mb-3">Ajouter une Question</a>
+                <a href="./CRUD/addForm.php?type=question" class="btn btn-primary mb-3">Ajouter une Question</a>
             </div>
 
 

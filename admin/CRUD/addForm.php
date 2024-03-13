@@ -9,7 +9,7 @@ if(isset($_GET['type'])) {
     $type = $_GET['type'];
 } else {
     // Redirection en cas d'absence du type
-    header("Location: error.php");
+  var_dump($type);
     exit;
 }
 ?>

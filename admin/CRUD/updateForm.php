@@ -72,7 +72,7 @@ if(isset($_GET['type'])) {
         </ul>
     </form>
 <?php } else {
-  header("Location: ../dashborard.php");
+  header("Location: ../dashboard.php");
   exit;
 } ?>
 

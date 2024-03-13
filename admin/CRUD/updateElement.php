@@ -30,11 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        
                // S'il y a des valeurs à mettre à jour, exécuter la requête SQL
                if (!empty($updateValues)) {
+                //transformation de tableau en string pour envoyer dans la requete sql
+                // implode(string $separator, array $array): string
                    $updateString = implode(', ', $updateValues);
                    $sql = "UPDATE questions SET $updateString WHERE id = '$currentId'";
                    $conn->query($sql);
                }
-       
+
+            
                // Message de réussite
                echo "Question updated successfully";
        
@@ -81,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         // Redirection en cas de type invalide
-       var_dump($type);
+     
         exit;
     }
 }

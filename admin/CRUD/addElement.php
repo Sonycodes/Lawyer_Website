@@ -52,7 +52,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $conn->query($sql);
            
             // Message de réussite
-            echo "Article ajouté avec succès";
+            echo "
+            <h1> Article ajouté avec succès</h1>
+        ";
 
             // Redirection après un court délai
             header("Refresh: 3; url=/admin/dashboard.php");
