@@ -1,4 +1,3 @@
-
 <?php
 
 // Établir la connexion à la base de données
@@ -6,37 +5,20 @@ $conn = getPDOlink($config);
 $articles = findAllArticles($conn);
 ?>
 <!-- Afficher les cartes en rangées de trois -->
-<div class="container row m-auto py-5">
-  <?php foreach ($articles as $article): ?>
-  <div class="col-md-4">
-    <div class="card m-auto" style="width: 20rem; height: 25rem;">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="container" style="height: 10em;  overflow: hidden;">
-          <?php
-        // Récupérer le contenu de la page Web
-        $html = file_get_contents($article['lien']);
 
-        // Analyser le contenu HTML pour extraire l'URL de l'image
-        if (preg_match('/<meta\s+property="og:image"\s+content="([^"]+)"/i', $html, $matches)) {
-            $image_url = $matches[1];
-            // Afficher l'image dans votre page Web
-            echo '<img src="' . $image_url . '" class="card-img-top mt-2 img-fluid" style="width: 100%; height: 100%; object-fit: cover;" alt="Image associée au lien">';
-        } else {
-            echo "Aucune image trouvée";
-        }
-      ?>
+<div class="container">
+  <div class="row">
+      <?php foreach ($articles as $article): ?>
+      <div class="card w-75  col-md-10 mb-3 m-4 p-3 mx-auto">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $article['titre']; ?></h5>
+          <p class="card-text"><?php echo $article['descrip']; ?> : </p>
+          <a href="<?php echo $article['lien']; ?>" class="card-link"><?php echo $article['lien']; ?></a>
+        </div>
       </div>
-      <div class="px-1">
-        <h5 class="card-title"><?php echo $article['titre']; ?></h5>
-        <a href="<?php echo $article['lien']; ?>" class="card-link"><?php echo $article['lien']; ?></a>
-        <p class="card-text"><?php echo $article['description']; ?></p>
-      </div>
-    </div>
+    <?php endforeach; ?>
   </div>
-  <?php endforeach; ?>
 </div>
-
-
 
 <?php
 
