@@ -1,5 +1,5 @@
 
-  <div class="container bg-container p-5 text-center rounded-2 text-duck col">
+  <div class="container bg-container p-5 text-center rounded-2 text-duck col z-index-0" style="z-index: 0 !important;">
     <h2 class="">Formulaire de contact</h2>
     <!-- Formulaire de contact -->
     <form id="contactForm" method="POST" action="send_email.php" class="mb-3">

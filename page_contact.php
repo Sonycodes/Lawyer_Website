@@ -11,8 +11,8 @@ include_once './utilities/navigation/nav_general.php';
 
 
 <div class="container m-auto py-5 d-md-flex align-items-end">
-    <div class="container bg-beige bg-leaf  rounded-3 shadow text-duck text-center mx-md-5 col-md-3 "> 
-        <div class="row justify-content-center my-4 p-3 gap-3">
+    <div class="container bg-leaf rounded-3 shadow text-duck text-center mx-md-5 col-md-3 " style="z-index: 0 !important; background-color:#f5e4b8 !important;">
+        <div class="row justify-content-center my-4 p-3 gap-3" style="z-index: 0 !important;">
             <div class="text-center">
                 <h2 class="h4">Vous souhaitez prendre rendez-vous ?</h2>
             </div>
