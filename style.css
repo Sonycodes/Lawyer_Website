@@ -81,17 +81,17 @@ p{
 }
 
 
-a {
-    color: #F4BF31 !important; 
+a:not(nav) {
+    color: #03495E !important; 
 }
 nav a{
     color: #f5ecd4 !important; 
 }
 nav a:hover {
-    color: #F4BF31 !important; 
+    color: #7b6016 !important; 
 }
 a:hover {
-    color: #03495E !important; 
+    color: #7b6016 !important; 
 }
 
 .text-justify{
