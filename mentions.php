@@ -14,22 +14,24 @@ include_once './utilities/navigation/nav_general.php';
 <p>127 rue de Rome<br>
 13 006 MARSEILLE<br>
 France<br>
-Tél. : + 33 (0)6 95 76 78 18<br>
-https://www.janebecker-avocate.fr<br>
+Tél. : + 33 (0)7 72 06 23 77<br>
+https://www.becker-avocate.fr/<br>
 <a href="contact@janebecker-avocate.fr">contact@janebecker-avocate.fr</a><br>
-Siret : OOOOOOOOOOOOOOOOO</p>
+Siret : 844 830 273 00042</p>
 </div>
 
 
 
 <div class="text-md-start mx-4 my-4">
 <p><strong>Hébergeur</strong></p>
-<p>"OVH"<br>
-"SAS au capital de 10 069 020 €"<br>
-"RCS Lille Métropole 424 761 419 00045"<br>
-"Code APE 2620Z"<br>
-"N° TVA : FR 22 424 761 419"<br>
-"Siège social : 2 rue Kellermann – 59100 Roubaix – France."
+<p>
+"Hostinger"<br>
+"Société par Actions Simplifiée (SAS)"<br>
+"Capital social de 100 000 €"<br>
+"RCS de 812 237 925"<br>
+"Code APE 6311Z"<br>
+"N° TVA : FR 24 812 237 925"<br>
+"Siège social : 61 rue du Faubourg Saint-Honoré – 75008 Paris – France."
 </p>
 </div>
 

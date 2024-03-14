@@ -30,7 +30,7 @@
             <p>* Redirection vers le site du Conseil National des Barreaux
                 <br>- payment sécurisé -
             </p>
-            <p>Pour en savoir plus sur les honoraires, <a href="#">cliquiez ici.</a></p>
+            <p>Pour en savoir plus sur les honoraires, <a href="../../honoraires.php">cliquiez ici.</a></p>
         </div>
     </div>
 </div>

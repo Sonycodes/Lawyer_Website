@@ -115,12 +115,13 @@ a:hover {
 
 .accordion-button::after {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2303485e' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 8h12'/%3e%3cpath d='M8 2v12'/%3e%3c/svg%3e") !important;
-    padding-left: 10%;
+    padding-left: 5%;
 }
 
 
 .accordion-button:not(.collapsed)::after  {
     background-image:    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2303485e' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 8h12'/%3e%3c/svg%3e") !important;
+    padding-left: 2%;
 }
 
 
