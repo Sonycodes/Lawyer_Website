@@ -5,14 +5,13 @@ include_once './utilities/navigation/nav_general.php';
 
 
 <section class="container col-5 m-auto text-center text-muted">
-        <p class="h6">Prêts à défendre vos droits? <br>
-Contactez-moi dès maintenant pour une assistance juridique fiable et personnalisée.</p>
-    </section>
+    <p class="h6">Prêts à défendre vos droits? <br>
+        Contactez-moi dès maintenant pour une assistance juridique fiable et personnalisée.</p>
+</section>
 
 
 <div class="container m-auto py-5 d-md-flex align-items-end">
-
-    <div class="container bg-container bg-leaf  rounded-3 shadow text-duck text-center mx-md-5 col-md-3 ">
+    <div class="container bg-beige bg-leaf  rounded-3 shadow text-duck text-center mx-md-5 col-md-3 "> 
         <div class="row justify-content-center my-4 p-3 gap-3">
             <div class="text-center">
                 <h2 class="h4">Vous souhaitez prendre rendez-vous ?</h2>
@@ -38,7 +37,7 @@ Contactez-moi dès maintenant pour une assistance juridique fiable et personnali
             </div>
             <div class="col-md-10 row p-3 rounded-2 bg-light-beige shadow align-items-center">
                 <div class="col-md-1">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
                 </div>
                 <div class="col">
                     <p class="text-md-end"> <small>contact@janebecker-avocat.fr</small></p>
@@ -50,7 +49,9 @@ Contactez-moi dès maintenant pour une assistance juridique fiable et personnali
                     <i class="fas fa-calendar-days"></i>
                 </div>
                 <div class="col">
-                    <p class="text-md-end"> <small><a href="https://consultation.avocat.fr/avocat-marseille/jane-becker-46306.html">* Rendez-vous en ligne</a></small></p>
+                    <a href="https://consultation.avocat.fr/avocat-marseille/jane-becker-46306.html">
+                        <p class="text-md-end"><small>* Rendez-vous en ligne</small></p>
+                    </a>
                 </div>
             </div>
 

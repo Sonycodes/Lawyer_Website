@@ -26,7 +26,7 @@
                 <h5 class="mb-5">Contact</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2">127 rue de Rome, Marseille, France</li>
-                    <li class="nav-item mb-2">Tél. : + 33 (0)6 81 96 36 98</li>
+                    <li class="nav-item mb-2">Tél. : + 33 (0)7 72 06 23 77</li>
                     <li class="nav-item mb-2">www.janebecker-avocate.fr</li>
                     <li class="nav-item mb-2">contact@janebecker-avocat.fr</li>
                 </ul>

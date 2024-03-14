@@ -39,9 +39,12 @@ p{
 
 .eggshell {
     color: #F5ECD4 !important;
-}.bg-container{
-    background-color: #f5e4b8;
-    z-index: -2;
+
+}
+
+.bg-container{
+    background-color: #d61010 !important;
+    z-index: 0 !important;
 }
 
 .bg-light-beige{
@@ -72,6 +75,7 @@ p{
     bottom: 0;
     left: 0;
     z-index: -1;
+    background-color: #f5e4b8 !important;
 }
 
 
