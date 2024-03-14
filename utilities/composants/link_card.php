@@ -9,7 +9,7 @@ $articles = findAllArticles($conn);
 <div class="container">
   <div class="row">
       <?php foreach ($articles as $article): ?>
-      <div class="card w-75  col-md-10 mb-3 m-4 p-3 mx-auto">
+      <div class="card w-75 col-md-10 mb-3 m-4 p-md-3 mx-auto">
         <div class="card-body">
           <h5 class="card-title"><?php echo $article['titre']; ?></h5>
           <p class="card-text"><?php echo $article['descrip']; ?> : </p>
