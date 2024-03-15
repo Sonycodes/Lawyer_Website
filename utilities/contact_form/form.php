@@ -2,7 +2,7 @@
   <div class="container bg-container p-5 text-center rounded-2 text-duck col z-index-0" style="z-index: 0 !important;">
     <h2 class="">Formulaire de contact</h2>
     <!-- Formulaire de contact -->
-    <form id="contactForm" method="POST" action="send_email.php" class="mb-3">
+    <form id="contactForm" method="POST" action="/utilities/contact_form/send_email.php" class="mb-3">
       <!-- Champ pour le nom -->
       <div class="mb-3">
         <!-- <label for="name" class="form-label">Nom</label> -->
@@ -11,7 +11,12 @@
        <!-- Champ pour le prénom -->
        <div class="mb-3">
         <!-- <label for="first-name" class="form-label">Prénom</label> -->
-        <input type="text" class="form-control bg-light-beige shadow" id="first-name" name="first-name" placeholder="Votre prénom"  required>
+        <input type="text" class="form-control bg-light-beige shadow" id="first-name" name="firstName" placeholder="Votre prénom"  required>
+      </div>
+        <!-- Champ pour le sujet -->
+        <div class="mb-3">
+        <!-- <label for="first-name" class="form-label">Prénom</label> -->
+        <input type="text" class="form-control bg-light-beige shadow" id="sujet" name="sujet" placeholder="Sujet"  required>
       </div>
       <!-- Champ pour l'adresse email -->
       <div class="mb-3">

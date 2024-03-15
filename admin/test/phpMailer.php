@@ -2,11 +2,11 @@
 //classes
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
-// use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\Exception;
+
   $name = clean_input($_POST["name"]);
   $email = clean_input($_POST["email"]);
   $message = clean_input($_POST["message"]);
-    $sujet = clean_input($_POST["sujet"]);
 // on devrai peut etre rajouter sujet et cela nous permettrai de faire un système de trie dans la boite de mail
 $message= $_POST["message"];
 echo("hello");
@@ -25,12 +25,12 @@ require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            
     $mail->Port       = 587;  
     //ici on choisit qui envoie
-    $mail->setFrom('contact@becker-avocate.fr', $name, $firstname);
+    $mail->setFrom($email, $name, $firstname);
     //  c'est ici qu'on choisit ou envoyer 
     $mail->addAddress('sonia.98.tavares@gmail.com', 'Moi'); 
     if ($mail->addReplyTo($_POST['email'], $_POST['name'])) {
         //content of email
-        $mail->Subject = $sujet;
+        $mail->Subject = 'Formulaire de contact Becker_website';
         $mail->isHTML(false);
         //  Cela commence une affectation de chaîne de texte à la propriété Body de l'objet $mail
         // chaîne heredoc est une manière pratique de définir des chaînes de texte sur plusieurs lignes en PHP. Elle est souvent utilisée pour insérer de grandes portions de texte sans avoir à échapper des guillemets ou des apostrophes
