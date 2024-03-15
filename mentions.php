@@ -15,7 +15,7 @@ include_once './utilities/navigation/nav_general.php';
 13 006 MARSEILLE<br>
 France<br>
 Tél. : + 33 (0)7 72 06 23 77<br>
-https://www.becker-avocate.fr/<br>
+www.becker-avocate.fr/<br>
 <a href="contact@janebecker-avocate.fr">contact@janebecker-avocate.fr</a><br>
 Siret : 844 830 273 00042</p>
 </div>
@@ -42,14 +42,14 @@ Siret : 844 830 273 00042</p>
 13 006 MARSEILLE<br>
 France<br>
 Tél. : + 33 (0)6 95 76 78 18<br>
-https://www.janebecker-avocate.fr<br>
+www.becker-avocate.fr/<br>
 <a href="contact@janebecker-avocate.fr">contact@janebecker-avocate.fr</a>
 </p>
 </div>
 
 <div class="text-md-start mx-4 my-4">
 <p><strong>Conditions d’utilisations :</strong></p>
-<p>Le site accessible par le url suivants : www.janebecker-avocate.fr est exploité dans le respect de la 
+<p>Le site accessible par le url suivants : www.becker-avocate.fr/ est exploité dans le respect de la 
 législation française.<br>
 L’utilisation de ce site est régie par les présentes conditions générales. En utilisant le site, 
 vous reconnaissez avoir pris connaissance de ces conditions et les avoir acceptées. Celles-ci pourront êtres 
@@ -68,7 +68,7 @@ préjudice direct ou indirect pouvant en découler.<br>
 Tout contenu téléchargé se fait aux risques et périls de l’utilisateur et sous sa seule responsabilité. 
 En conséquence, Madame Jane Becker ne saurait être tenue responsable d’un quelconque dommage subi 
 par l’ordinateur de l’utilisateur ou d’une quelconque perte de données consécutives au téléchargement.
-Le site www.janebecker-avocate.fr ne pourra être tenu pour responsable en cas de dommages 
+Le site www.becker-avocate.fr/ ne pourra être tenu pour responsable en cas de dommages 
 matériels liés à son utilisation.</p>
 </div>
 
@@ -80,7 +80,7 @@ présentes sur le réseau Internet ne sauraient engager la responsabilité de Ma
 
 <div class="text-md-start mx-4 my-4">
 <p><strong>Données personnelles, respect de votre vie privée et de vos libertés</strong></p>
-<p>Toute information recueillie sur le site web janebecker-avocate.fr se font dans le cadre des besoins liés à 
+<p>Toute information recueillie sur le site web www.becker-avocate.fr/ se font dans le cadre des besoins liés à 
 l’utilisation de notre plateforme, tels que le formulaire contact.
 Madame Jane Becker s’engage à ne céder en aucun cas les informations concernant les utilisateurs du 
 site Internet, de quelque façon qu’il soit (vente, échange, prêt, location, don).
