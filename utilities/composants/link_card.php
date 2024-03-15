@@ -9,11 +9,11 @@ $articles = findAllArticles($conn);
 <div class="container">
   <div class="row">
       <?php foreach ($articles as $article): ?>
-      <div class="card w-75 col-md-10 mb-3 m-4 p-md-3 mx-auto">
+      <div class="card w-md-75 col-md-10 mb-3 m-4 p-md-3 mx-auto bg-container">
         <div class="card-body">
           <h5 class="card-title"><?php echo $article['titre']; ?></h5>
-          <p class="card-text"><?php echo $article['descrip']; ?> : </p>
-          <a href="<?php echo $article['lien']; ?>" class="card-link"><?php echo $article['lien']; ?></a>
+          <p class="card-text"><?php echo $article['description']; ?> : </p>
+          <a href="<?php echo $article['lien']; ?>" class="card-link small"><?php echo $article['lien']; ?></a>
         </div>
       </div>
     <?php endforeach; ?>
