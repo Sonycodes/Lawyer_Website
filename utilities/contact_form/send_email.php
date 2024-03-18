@@ -6,12 +6,11 @@ use PHPMailer\PHPMailer\SMTP;
   $name = clean_input($_POST["name"]);
   $email = clean_input($_POST["email"]);
   $message = clean_input($_POST["message"]);
-    $sujet = clean_input($_POST["sujet"]);
-// on devrai peut etre rajouter sujet et cela nous permettrai de faire un système de trie dans la boite de mail
-$message= $_POST["message"];
-echo("hello");
+  $sujet = clean_input($_POST["sujet"]);
 
+// Inclusion de PHPMailer
 require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
+
 
     $mail = new PHPMailer;
     $mail->isSMTP();

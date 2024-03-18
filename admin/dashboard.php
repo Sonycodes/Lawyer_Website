@@ -4,13 +4,15 @@ require_once '../function/database.fn.php';
 require_once dirname(__DIR__) . '/function/questions.fn.php';
 require_once dirname(__DIR__) . '/function/ressources.fn.php';
 require_once dirname(__DIR__) . '/function/articles.fn.php';
+require_once './login/includes/config_session.inc.php';
+require_once './login/includes/login_view.inc.php';
 
 //vérifie si on s'est connécté sinon redirection vers page de connexion
-session_start();
-if (!isset($_SESSION['user'])) {
-    header("Location: ./login/login.php");
-    exit;
-}
+// session_start();
+// if (!isset($_SESSION['user'])) {
+//     header("Location: ./login/login.php");
+//     exit;
+// }
 
 ?>
 <!DOCTYPE html>
@@ -31,7 +33,12 @@ if (!isset($_SESSION['user'])) {
     <div class="container">
         <h1 class="mt-5 mb-4">Administration - Gestion du Droit du Travail</h1>
         <div class="d-flex justify-content-between">
-            <p>Bienvenue, <?php echo $_SESSION['user']; ?>!</p>
+            <h3><?php 
+            output_username();
+            ?></h3>
+            <!-- <p>Bienvenue, 
+                <?php //echo $_SESSION['user']; ?>
+            !</p> -->
             <a href="../index.php">Visualiser le site</a>
             <a href="./login/logout.php">Se déconnecter</a>
         </div>

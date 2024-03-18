@@ -11,6 +11,7 @@ use PHPMailer\PHPMailer\Exception;
 $message= $_POST["message"];
 echo("hello");
 
+// Inclusion de PHPMailer
 require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
 
     $mail = new PHPMailer;
@@ -40,6 +41,8 @@ Nom: {$_POST['name']}
 Nom: {$_POST['firstName']}
 Message: {$_POST['message']}
 EOT;
+
+// Envoi de l'e-mail et gestion des erreurs
         if (!$mail->send()) {
             $msg = 'Désolé, quelque chose a mal tourné. Veuillez réessayer plus tard.';
         } else {

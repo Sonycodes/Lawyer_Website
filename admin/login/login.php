@@ -1,13 +1,34 @@
 <?php
 require_once dirname(__DIR__, 2) . '/config/conn.php';
 require_once dirname(__DIR__, 2) . '/function/database.fn.php';
+
+// Définition de la durée de vie du cookie de session à 60min
+$session_timeout = 3600;
+
+// Définition de la durée d'expiration de la session à 60 minutes
+session_set_cookie_params($session_timeout);
+session_cache_expire(60);
+
+// Démarrage de la session
 session_start();
+
+// Vérification du temps d'inactivité de la session
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $session_timeout)) {
+    session_unset();     // Suppression des variables de session
+    session_destroy();   // Destruction de la session
+    header("Location: login.php"); // Redirection vers la page de connexion
+    exit;
+}
+
+// Mise à jour du temps d'activité de la session
+$_SESSION['LAST_ACTIVITY'] = time();
 
 // Vérifier si l'utilisateur est déjà connecté, le rediriger vers le tableau de bord s'il l'est
 if (isset($_SESSION['user'])) {
     header("Location: ../dashboard.php");
     exit;
 }
+
 
 // Vérifier si le formulaire de connexion a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -26,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Vérification du résultat de la requête
       $result = $stmt->fetch();
 
-    // Vérifier les informations d'identification (vous devez implémenter votre propre logique d'authentification)
+    // Vérifier les informations d'identification 
     if ($result) {
         // L'utilisateur est authentifié, démarrer la session et rediriger vers le tableau de bord
         $_SESSION['user'] = $username;
