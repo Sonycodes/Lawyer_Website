@@ -24,6 +24,28 @@ require_once dirname(__DIR__, 2) . '/function/articles.fn.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title><?php echo $title; ?></title>
 
+    <!-- Autres balises meta, titre, etc. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Jane Becker Avocate",
+      "description": "Jane Becker, Avocate, offre des services juridiques en droit du travail, de la sécurité sociale et de la famille. Contactez notre avocate spécialisée dès aujourd'hui.",
+      "openingHours": "Mo-Fr 09:00-17:00",
+      "paymentAccepted": "Cash, Credit Card",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "127 Rue de Rome",
+        "addressLocality": "Marseille",
+        "postalCode": "13006",
+        "addressCountry": "France"
+      },
+      "telephone": "+33 7 72 06 23 77",
+      "email": "contact@becker-avocate.fr",
+      "priceRange": "€"
+    }
+    </script>
+
     </head>
 <body>
     <main style="overflow-x: hidden;">
