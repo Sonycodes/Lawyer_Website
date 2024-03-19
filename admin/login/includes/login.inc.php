@@ -1,7 +1,7 @@
 <?php
-
-//si la methode pour arriver a cette page est post on fait fonctionner le code
+// Vérifier si le formulaire de connexion a été soumis
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Récupérer les données du formulaire
     $username = $_POST["username"];
     $password = $_POST["password"];
     //on va utiliser un try catch pour gerer les erreurs
@@ -24,9 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (is_input_empty($username, $password)) {
             $errors["empty_input"] = "Fill in all fields!";
         }
-        //
+        //on récupere les données du tableau sql
         $result = get_user($conn, $username);
-        // $hashedpassword= $result["password"];
         $hashedPwd = $result["password"];
 
         if (is_username_wrong($result)) {
@@ -46,21 +45,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $errors["login_incorrect"] = "Incorrect login info password!";
             }
         }
+
+        if ($errors) {
+            // on inclu notre fichier de session qui va gerer la sécurité de la session
+            require_once 'config_session.inc.php';
+            $_SESSION["errors_login"] = $errors;
+          
+            header("Location: ../login.poo.php?login=unsuccess");
+
+            die();
+        }
+        //si tout est correct : 
+        //creates a new id for security if we have a user id we can append it 
+        $newSessionId = session_create_id();
+        $sessionId = $newSessionId . "_" . $result["id"];
+        session_id($sessionId);
         // on inclu notre fichier de session qui va gerer la sécurité de la session
         require_once 'config_session.inc.php';
 
-        if ($errors) {
-            $_SESSION["errors_login"] = $errors;
-            header("Location: ../login.poo.php");
-            die();
-        }
 
-        //creates a new id for security if we have a user id we can append it 
-        $newSessionId = session_create_id();
-        session_id($newsessionId);
-  $_SESSION['user'] = $username;
-  var_dump($_SESSION['user']);
+        $_SESSION["user_id"] = $result["id"];
+        $_SESSION["user_username"] = htmlspecialchars($result["username"]);
+
         $_SESSION["last_regeneration"] = time();
+    
         header("Location: ../../dashboard.php?login=success");
         $pdo = null;
         $statement = null;
@@ -70,6 +78,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 } else {
     //si l'utilisateur est arrivé a cette page par un autre moyen que le formulaire renvoyer vers login
-    header("Location: login.php");
+    // header("Location: ../login.poo.php");
     die();
 }

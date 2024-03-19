@@ -1,7 +1,4 @@
 <?php
-require_once './includes/config_session.inc.php';
-require_once './includes/login_view.inc.php';
-
 // Vérifier si l'utilisateur est déjà connecté, le rediriger vers le tableau de bord s'il l'est
 // if (isset($_SESSION['user'])) {
 //     header("Location: ../dashboard.php");
@@ -12,8 +9,6 @@ require_once './includes/login_view.inc.php';
 
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,6 +27,13 @@ require_once './includes/login_view.inc.php';
     <h1>Bienvenue à ton espace admnistrateur</h1>
     <h3 class="mb-5">Connecte toi pour avoir access</h3>
 
+    <?php  
+    if (session_status() === PHP_SESSION_ACTIVE) {
+      // La session est active, procédez avec le reste du code
+      echo "Session is active.";
+  }
+    ?>
+
 <div class="bg-container" >
     <form  action="./includes/login.inc.php" method="Post">
     <div class="mb-3">
@@ -47,8 +49,15 @@ require_once './includes/login_view.inc.php';
     </div>
     <button type="submit" value="Se connecter" class="btn btn-primary">Submit</button>
   </form>
+
   <?php
+  // Démarrage de la session si le formulaire est soumis
+if ($_SERVER["REQUEST_METHOD"] === "POST" || isset($_GET['login'])) {
+  require_once './includes/config_session.inc.php';
+  require_once './includes/login_view.inc.php';
   check_login_errors();
+}
+
   ?>
 </div>
 </body>

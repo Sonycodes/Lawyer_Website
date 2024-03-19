@@ -9,10 +9,10 @@ require_once './login/includes/login_view.inc.php';
 
 //vérifie si on s'est connécté sinon redirection vers page de connexion
 // session_start();
-// if (!isset($_SESSION['user'])) {
-//     header("Location: ./login/login.php");
-//     exit;
-// }
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ./login/login.poo.php");
+    exit;
+}
 
 ?>
 <!DOCTYPE html>
