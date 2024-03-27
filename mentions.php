@@ -41,7 +41,7 @@ Siret : 844 830 273 00042</p>
 127 rue de Rome<br>
 13 006 MARSEILLE<br>
 France<br>
-Tél. : + 33 (0)6 95 76 78 18<br>
+Tél. : + 33 (0)7 72 06 23 77<br>
 www.becker-avocate.fr/<br>
 <a href="contact@janebecker-avocate.fr">contact@janebecker-avocate.fr</a>
 </p>
