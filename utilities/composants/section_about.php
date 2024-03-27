@@ -2,7 +2,7 @@
     <div class="px-lg-5 px-2">
         <div class="row align-items-top">
             <div class="photo col-lg-4 mb-4 mb-lg-0">
-                <img src="/assets/photo_jane.png" alt="photo jane" class="img-fluid rounded">
+                <img src="/assets/profilJane.png" alt="photo jane" class="img-fluid rounded">
             </div>
             <div class="top col-lg">
                 <h1 class="text-center fw-bold mb-5">A-propos</h1>
