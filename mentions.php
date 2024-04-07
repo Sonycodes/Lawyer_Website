@@ -95,7 +95,7 @@ sa demande par courrier, à l’adresse suivante
 <p><strong>Cookies</strong></p>
 <p>Pour des besoins de statistiques et d’affichage, le présent site utilise des cookies. Il s’agit de petits 
 fichiers textes stockés sur votre disque dur afin d’enregistrer des données techniques sur votre navigation. 
-Certaines parties de ce site ne peuvent être fonctionnelle sans l’acceptation de cookies.</p>
+Certaines parties de ce site ne peuvent être fonctionnelles sans l’acceptation de cookies.</p>
 </div>
 
 <div class="text-md-start mx-4 my-4">

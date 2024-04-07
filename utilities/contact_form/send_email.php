@@ -1,38 +1,45 @@
 <?php
-//classes
+// Utilisation des classes PHPMailer pour l'envoi d'e-mails
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
-// use PHPMailer\PHPMailer\Exception;
+
+// Nettoyage des données entrées par l'utilisateur
 $name = clean_input($_POST["name"]);
+$firstName = clean_input($_POST["firstName"]);
 $email = clean_input($_POST["email"]);
 $message = clean_input($_POST["message"]);
 $sujet = clean_input($_POST["sujet"]);
 
-// Inclusion de PHPMailer
+
+// Inclusion de la bibliothèque PHPMailer
 require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
 
-
+// Création d'une nouvelle instance de PHPMailer
 $mail = new PHPMailer;
+
+// Configuration de PHPMailer pour utiliser SMTP
 $mail->isSMTP();
-$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+// $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 $mail->Host = 'smtp.hostinger.fr';
 $mail->SMTPAuth = true;
-//SMTP username //SMTP password
-$mail->Username   = 'contact@becker-avocate.fr';
-$mail->Password   = 'Bananes-98';
-//Enable implicit TLS encryption                          
-$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-$mail->Port       = 587;
-//ici on choisit qui envoie
-$mail->setFrom('contact@becker-avocate.fr', $name, $firstname);
-//  c'est ici qu'on choisit ou envoyer 
-$mail->addAddress('sonia.98.tavares@gmail.com', 'Moi');
+$mail->Username   = 'contact@becker-avocate.fr'; // Nom d'utilisateur SMTP
+$mail->Password   = 'Bananes-98'; // Mot de passe SMTP
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Activation du chiffrement TLS
+$mail->Port       = 587; // Port SMTP
+
+// Définition de l'expéditeur
+$mail->setFrom('contact@becker-avocate.fr', $name, $firstName); // Adresse e-mail de l'expéditeur
+
+// Ajout du destinataire
+$mail->addAddress('arandaligia8@gmail.com', 'Moi'); // Adresse e-mail du destinataire
+
+// Ajout d'une adresse de réponse
 if ($mail->addReplyTo($_POST['email'], $_POST['name'])) {
-  //content of email
+  // Définition du sujet de l'e-mail
   $mail->Subject = $sujet;
-  $mail->isHTML(false);
-  //  Cela commence une affectation de chaîne de texte à la propriété Body de l'objet $mail
-  // chaîne heredoc est une manière pratique de définir des chaînes de texte sur plusieurs lignes en PHP. Elle est souvent utilisée pour insérer de grandes portions de texte sans avoir à échapper des guillemets ou des apostrophes
+  $mail->isHTML(false); // Spécification du format de l'e-mail (ici, texte brut)
+
+  // Corps de l'e-mail
   $mail->Body = <<<EOT
 E-mail: {$_POST['email']}
 Nom: {$_POST['name']}
@@ -40,7 +47,7 @@ Nom: {$_POST['firstName']}
 Message: {$_POST['message']}
 EOT;
 
-//gestion d'erreurs
+  // Envoi de l'e-mail et gestion d'erreurs
   if (!$mail->send()) {
     $msg = 'Désolé, quelque chose a mal tourné. Veuillez réessayer plus tard.';
   } else {
@@ -49,7 +56,8 @@ EOT;
 } else {
   $msg = 'Partagez-les avec nous !';
 }
-
+echo $msg;
+header("Refresh: 3; url=/index.php");
 // Fonction pour nettoyer les données entrées par l'utilisateur
 function clean_input($data)
 {

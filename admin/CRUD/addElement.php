@@ -1,23 +1,13 @@
-<?php 
+<?php
 
 require_once dirname(__DIR__, 2) . '/config/conn.php';
 require_once dirname(__DIR__, 2) . '/function/questions.fn.php';
-
-// if(isset($_POST['type'])) {
-//     $type = $_POST['type'];
-//     var_dump($type);
-
-// } else {
-//     var_dump($type);
-
-//     exit;
-// }
 
 // Vérification du type avant de récupérer les données du formulaire
 if (isset($_POST['type']) && ($_POST['type'] === 'question' || $_POST['type'] === 'article')) {
     $type = $_POST['type'];
 } else {
-    // Redirection en cas de type non valide (vreer une page erreur qi rederige ensuite vers dashboard)
+    // Redirection en cas de type non valide (créer une page erreur qui redirige ensuite vers dashboard)
     header("Location: ../dashboard.php");
     exit();
 }
@@ -29,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $reponse = htmlspecialchars($_POST['reponse']);
 
         try {
-            $sql = "INSERT INTO `questions` (`question`, `reponse`) VALUES ('$question', '$reponse')";
-            $conn->query($sql);
+            $stmt = $conn->prepare("INSERT INTO `questions` (`question`, `reponse`) VALUES (?, ?)");
+            $stmt->execute([$question, $reponse]);
            
             // Message de réussite
             echo "Question ajoutée avec succès";
@@ -48,8 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $description = htmlspecialchars($_POST['description']);
 
         try {
-            $sql = "INSERT INTO `articles` (`titre`, `lien`, `description`) VALUES ('$titre', '$lien', '$description')";
-            $conn->query($sql);
+            $stmt = $conn->prepare("INSERT INTO `articles` (`titre`, `lien`, `description`) VALUES (?, ?, ?)");
+            $stmt->execute([$titre, $lien, $description]);
            
             // Message de réussite
             echo "
@@ -65,12 +55,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         // Redirection en cas de type invalide
-        header("Location: ../dashborard.php");
+        header("Location: ../dashboard.php");
         exit;
     }
 } else {
     // Redirection si le formulaire n'a pas été soumis via POST
-    header("Location: ../dashborard.php");
+    header("Location: ../dashboard.php");
     exit;
 }
 ?>

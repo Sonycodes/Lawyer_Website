@@ -10,3 +10,4 @@ $config = [
     'dbuser' => 'root',// Le nom d'utilisateur pour se connecter à la BDD.
     'dbpass' => '' // Le mot de passe pour se connecter à la BDD.
 ];
+
