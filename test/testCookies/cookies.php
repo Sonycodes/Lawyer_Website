@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/cookiesFunctions/setCookie.php';
+require_once __DIR__ . '/cookiesFunctions/setCookie.js';
 ?>
 
 <!DOCTYPE html>
