@@ -84,14 +84,14 @@ p{
 a:not(nav) {
     color: #03495E !important; 
 }
-nav a{
+a{
     color: #f5ecd4 !important; 
 }
 nav a:hover {
-    color: #7b6016 !important; 
+    color: #F4C430 !important; 
 }
 a:hover {
-    color: #7b6016 !important; 
+    color: #F4C430 !important; 
 }
 
 .text-justify{

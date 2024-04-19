@@ -1,8 +1,8 @@
 <?php
 include_once './utilities/composant_general/header.php';
 include_once './utilities/navigation/nav_accueil.php';
-
 ?>
+
 <div class="container-fluid mt-5">
   <div class="row">
     <div class="col-md-4 d-flex justify-content-md-end justify-content-center align-items-center"> 

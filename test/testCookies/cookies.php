@@ -25,7 +25,8 @@ require_once __DIR__ . '/cookiesFunctions/setCookie.js';
           <p>
           Bienvenue sur notre site web. Nous utilisons des cookies pour assurer le bon fonctionnement du site 
           et pour permettre la gestion des demandes que vous nous envoyez via notre formulaire de contact.<br>
-          En continuant à naviguer sur notre site, vous consentez à l'utilisation de ces cookies.
+          En continuant à naviguer sur notre site, vous consentez à l'utilisation de ces cookies. Si vous acceptez
+          l’utilisation des cookies, vous pourrez toujours la désactiver ultérieurement.
           Pour plus d'informations sur la manière dont nous utilisons les cookies et sur vos options de 
           contrôle, veuillez consulter notre politique en matière de cookies.
           </p>

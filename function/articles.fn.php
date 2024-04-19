@@ -67,4 +67,3 @@ function deleteArticleById($conn, $currentID) {
         return false;
     }
 }
-
